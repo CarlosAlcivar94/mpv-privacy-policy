@@ -63,10 +63,10 @@ a:hover {
 
 .app-title-banner {
   display: block;
-  width: min(560px, calc(100vw - 48px));
-  height: 238px;
-  max-height: 28vh;
-  aspect-ratio: 2.35 / 1;
+  width: 100%;
+  max-width: 1120px;
+  height: clamp(220px, 24vw, 315px);
+  aspect-ratio: 3.55 / 1;
   object-fit: cover;
   object-position: center;
   border: 1px solid rgba(255, 255, 255, 0.18);
@@ -75,7 +75,7 @@ a:hover {
 }
 
 .app-title-note {
-  max-width: 560px;
+  max-width: 1120px;
   margin: 10px auto 0;
   color: rgba(255, 255, 255, 0.82);
   font-size: 0.9rem;
@@ -684,9 +684,8 @@ code {
   }
 
   .app-title-banner {
-    width: min(100%, 520px);
+    width: 100%;
     height: auto;
-    max-height: none;
     aspect-ratio: 2.05 / 1;
     border-radius: 6px;
   }
