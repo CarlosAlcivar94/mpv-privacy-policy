@@ -3,239 +3,147 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>MPV - Politicas de Privacidad</title>
-  <style>
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
-    body {
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-      background: #f5f7fa;
-      color: #1a1a2e;
-      line-height: 1.7;
-    }
-
-    header {
-      background: #1a1a2e;
-      color: #fff;
-      padding: 2rem 1.5rem;
-      text-align: center;
-    }
-
-    header h1 {
-      font-size: 1.8rem;
-      letter-spacing: 0.04em;
-    }
-
-    header p {
-      margin-top: 0.4rem;
-      font-size: 0.95rem;
-      opacity: 0.8;
-    }
-
-    nav {
-      display: flex;
-      justify-content: center;
-      gap: 1rem;
-      background: #16213e;
-      padding: 0.75rem 1rem;
-      flex-wrap: wrap;
-    }
-
-    nav a {
-      color: #e0e0e0;
-      text-decoration: none;
-      font-size: 0.9rem;
-      padding: 0.3rem 0.8rem;
-      border-radius: 4px;
-      transition: background 0.2s;
-    }
-
-    nav a:hover {
-      background: rgba(255, 255, 255, 0.12);
-    }
-
-    main {
-      max-width: 820px;
-      margin: 2.5rem auto;
-      padding: 0 1.25rem 4rem;
-    }
-
-    .quick-links {
-      background: #e8f1ff;
-      border: 1px solid #c6dbff;
-      border-radius: 10px;
-      padding: 1rem;
-      margin-bottom: 1rem;
-    }
-
-    .quick-links p {
-      margin-bottom: 0.7rem;
-      color: #143a66;
-      font-weight: 600;
-    }
-
-    .quick-links .actions a {
-      display: inline-block;
-      margin-right: 0.5rem;
-      margin-bottom: 0.4rem;
-      text-decoration: none;
-      background: #113b67;
-      color: #fff;
-      padding: 0.45rem 0.8rem;
-      border-radius: 7px;
-      font-size: 0.9rem;
-    }
-
-    .quick-links .actions a:hover {
-      background: #0b2f53;
-    }
-
-    section.policy {
-      background: #fff;
-      border-radius: 10px;
-      box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
-      padding: 2.5rem;
-      margin-bottom: 2.5rem;
-    }
-
-    section.policy h2 {
-      font-size: 1.4rem;
-      margin-bottom: 0.4rem;
-      color: #1a1a2e;
-    }
-
-    section.policy .updated {
-      font-size: 0.85rem;
-      color: #666;
-      margin-bottom: 1.4rem;
-    }
-
-    section.policy h3 {
-      font-size: 1.05rem;
-      margin: 1.5rem 0 0.5rem;
-      color: #16213e;
-    }
-
-    section.policy p {
-      margin-bottom: 0.8rem;
-    }
-
-    section.policy ul {
-      margin: 0.4rem 0 0.8rem 1.4rem;
-    }
-
-    section.policy ul li {
-      margin-bottom: 0.3rem;
-    }
-
-    section.policy a {
-      color: #0066cc;
-      word-break: break-all;
-    }
-
-    footer {
-      text-align: center;
-      font-size: 0.82rem;
-      color: #888;
-      padding-bottom: 2rem;
-    }
-
-    @media (max-width: 600px) {
-      section.policy {
-        padding: 1.5rem 1.25rem;
-      }
-    }
-  </style>
+  <title>ACKA94 - Centro de Politicas y Manuales</title>
+  <meta name="description" content="Centro publico de politicas de privacidad, manuales y enlaces de eliminacion de cuenta para las apps de ACKA94." />
+  <link rel="stylesheet" href="assets/site.css" />
 </head>
 <body>
-  <header>
-    <h1>MPV</h1>
-    <p>Politica de Privacidad</p>
+  <header class="site-header">
+    <div class="wrap">
+      <p class="eyebrow">Centro documental</p>
+      <h1>Politicas y manuales por aplicacion</h1>
+      <p>
+        Paginas publicas separadas para cada app, listas para enlazar desde Google Play Console,
+        desde la app y desde soporte.
+      </p>
+    </div>
   </header>
 
-  <nav>
-    <a href="app/index.html">Indice de la app</a>
-    <a href="manual.html">Manual</a>
+  <nav class="site-nav" aria-label="Navegacion principal">
+    <div class="wrap">
+      <a href="index.html" aria-current="page">Inicio</a>
+      <a href="apps/mpv/">My Vehicle Planner</a>
+      <a href="apps/futurebalance/">FutureBalance</a>
+      <a href="#google-play">Google Play</a>
+    </div>
   </nav>
 
-  <main>
-    <div class="quick-links">
-      <p>Acceso rapido a documentacion</p>
-      <div class="actions">
-        <a href="app/index.html">Abrir indice</a>
-        <a href="manual.html">Ver manual</a>
-      </div>
+  <main class="page">
+    <div class="wrap">
+      <section class="grid" aria-label="Aplicaciones publicadas">
+        <article class="app-card">
+          <header>
+            <img class="app-logo" src="assets/branding/mpv_logo.png" alt="Logo de My Vehicle Planner" />
+            <div>
+              <h2>My Vehicle Planner</h2>
+              <p class="muted">Mantenimiento vehicular, gastos, combustible, documentos, backups y avisos.</p>
+            </div>
+          </header>
+          <div class="tag-row" aria-label="Estado documental">
+            <span class="tag ok">Politica separada</span>
+            <span class="tag ok">Manual separado</span>
+            <span class="tag ok">Eliminacion de cuenta</span>
+          </div>
+          <p>
+            App Android local-first con Firebase Auth, Firestore/Storage segun plan, Google Drive AppData,
+            Play Billing, Mobile Ads, notificaciones y permiso de camara iniciado por el usuario.
+          </p>
+          <div class="actions">
+            <a class="button" href="apps/mpv/privacy.html">Politica</a>
+            <a class="button secondary" href="apps/mpv/manual.html">Manual</a>
+            <a class="button secondary" href="apps/mpv/account-deletion.html">Eliminar cuenta</a>
+          </div>
+        </article>
+
+        <article class="app-card">
+          <header>
+            <img class="app-logo" src="assets/branding/futurebalance_logo.png" alt="Logo de FutureBalance" />
+            <div>
+              <h2>FutureBalance</h2>
+              <p class="muted">Finanzas personales manuales, saldos futuros, tarjetas, presupuestos y backups.</p>
+            </div>
+          </header>
+          <div class="tag-row" aria-label="Estado documental">
+            <span class="tag ok">Politica separada</span>
+            <span class="tag ok">Manual separado</span>
+            <span class="tag ok">Eliminacion de cuenta</span>
+          </div>
+          <p>
+            App Android local-first con Firebase Auth, perfil basico en Firestore, Crashlytics/Analytics,
+            Google Drive AppData, compras Pro, notificaciones y datos financieros guardados localmente.
+          </p>
+          <div class="actions">
+            <a class="button" href="apps/futurebalance/privacy.html">Politica</a>
+            <a class="button secondary" href="apps/futurebalance/manual.html">Manual</a>
+            <a class="button secondary" href="apps/futurebalance/account-deletion.html">Eliminar cuenta</a>
+          </div>
+        </article>
+      </section>
+
+      <section class="panel" id="google-play">
+        <h2>Uso recomendado en Google Play Console</h2>
+        <p>
+          En Play Console conviene enlazar directamente la politica de cada app, no esta portada.
+          La portada sirve como indice publico y como centro de mantenimiento.
+        </p>
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th>App</th>
+              <th>URL para Privacy Policy</th>
+              <th>URL para Data deletion</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>My Vehicle Planner</td>
+              <td><a href="apps/mpv/privacy.html">apps/mpv/privacy.html</a></td>
+              <td><a href="apps/mpv/account-deletion.html">apps/mpv/account-deletion.html</a></td>
+            </tr>
+            <tr>
+              <td>FutureBalance</td>
+              <td><a href="apps/futurebalance/privacy.html">apps/futurebalance/privacy.html</a></td>
+              <td><a href="apps/futurebalance/account-deletion.html">apps/futurebalance/account-deletion.html</a></td>
+            </tr>
+          </tbody>
+        </table>
+        <p class="muted">
+          Referencias oficiales: <a href="https://support.google.com/googleplay/android-developer/answer/10144311?hl=es">User Data policy</a>,
+          <a href="https://support.google.com/googleplay/android-developer/answer/10787469?hl=es">Data safety</a> y
+          <a href="https://support.google.com/googleplay/android-developer/answer/13327111?hl=es">eliminacion de cuenta</a>.
+        </p>
+      </section>
+
+      <section class="grid three" aria-label="Reglas de mantenimiento">
+        <article class="doc-card">
+          <h2>1. Una app, una politica</h2>
+          <p>
+            Cada politica debe mencionar el nombre visible, paquete Android, datos tratados,
+            terceros, permisos, anuncios, compras, backups, seguridad y contacto.
+          </p>
+        </article>
+        <article class="doc-card">
+          <h2>2. Manual aparte</h2>
+          <p>
+            El manual explica uso del producto. La politica no debe mezclar instrucciones de uso
+            con declaraciones de privacidad.
+          </p>
+        </article>
+        <article class="doc-card">
+          <h2>3. Actualizar por cambio real</h2>
+          <p>
+            Si agregas SDKs, permisos, anuncios, compras, Drive, Storage o una nueva fuente de datos,
+            actualiza la politica y el formulario Data safety.
+          </p>
+        </article>
+      </section>
     </div>
-
-    <section class="policy" id="es">
-      <h2>Politica de Privacidad</h2>
-      <p class="updated">Ultima actualizacion: 24 de abril de 2026</p>
-
-      <p>
-        Esta aplicacion ("MPV") respeta tu privacidad. Esta politica explica que datos
-        recopilamos, como los usamos y que opciones tienes.
-      </p>
-
-      <h3>1. Datos que recopilamos</h3>
-      <p>Podemos recopilar y procesar:</p>
-      <ul>
-        <li><strong>Datos de cuenta:</strong> correo electronico e identificador de usuario (autenticacion).</li>
-        <li><strong>Datos que registras en la app:</strong> vehiculos, mantenimientos, gastos, repostajes, documentos y adjuntos.</li>
-        <li>Datos tecnicos basicos para funcionamiento y seguridad del servicio.</li>
-      </ul>
-
-      <h3>2. Uso de la camara</h3>
-      <p>
-        La aplicacion solicita el permiso <code>android.permission.CAMERA</code> para que puedas:
-      </p>
-      <ul>
-        <li>Tomar fotos de perfil de vehiculos.</li>
-        <li>Adjuntar fotos o documentos a registros dentro de la app.</li>
-      </ul>
-      <p>El uso de la camara es iniciado por ti y solo cuando eliges tomar una foto.</p>
-
-      <h3>3. Servicios de terceros (Firebase / Google)</h3>
-      <p>Usamos servicios de Google/Firebase para operar la aplicacion:</p>
-      <ul>
-        <li><strong>Firebase Authentication</strong> (inicio de sesion).</li>
-        <li><strong>Cloud Firestore</strong> (almacenamiento de datos de la app).</li>
-        <li><strong>Firebase Storage</strong> (archivos y adjuntos).</li>
-        <li><strong>Google Play Billing</strong> (compras dentro de la app, si aplica).</li>
-        <li><strong>Google Mobile Ads</strong> (anuncios para ciertos planes, si aplica).</li>
-      </ul>
-      <p>Estos proveedores pueden procesar datos conforme a sus propias politicas de privacidad.</p>
-
-      <h3>4. Comparticion de datos</h3>
-      <ul>
-        <li>No vendemos tus datos personales.</li>
-        <li>Los datos se comparten unicamente con proveedores necesarios para prestar el servicio.</li>
-      </ul>
-
-      <h3>5. Conservacion y eliminacion de datos</h3>
-      <ul>
-        <li>Conservamos tus datos mientras uses la app o sea necesario para prestar el servicio.</li>
-        <li>
-          Puedes solicitar eliminacion de tu cuenta y datos escribiendo a:<br />
-          <strong>Contacto:</strong> <a href="mailto:ka94desarrollo@gmail.com">ka94desarrollo@gmail.com</a>
-        </li>
-      </ul>
-
-      <h3>6. Seguridad</h3>
-      <p>
-        Aplicamos medidas razonables para proteger la informacion, pero ningun sistema
-        es 100% infalible.
-      </p>
-
-      <h3>7. Cambios a esta politica</h3>
-      <p>
-        Podemos actualizar esta politica ocasionalmente. Publicaremos la version
-        vigente con su fecha de actualizacion.
-      </p>
-    </section>
   </main>
 
-  <footer>
-    <p>&copy; 2026 MPV. Todos los derechos reservados.</p>
+  <footer class="site-footer">
+    <div class="wrap">
+      <p>&copy; 2026 ACKA94. Contacto: <a href="mailto:ka94desarrollo@gmail.com">ka94desarrollo@gmail.com</a>.</p>
+    </div>
   </footer>
 </body>
 </html>

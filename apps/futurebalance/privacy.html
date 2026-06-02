@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Politica de Privacidad - FutureBalance</title>
+  <meta name="description" content="Politica de privacidad de FutureBalance para Google Play y usuarios de la app." />
+  <link rel="stylesheet" href="../../assets/site.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="wrap">
+      <p class="eyebrow">FutureBalance</p>
+      <h1>Politica de Privacidad</h1>
+      <p>Ultima actualizacion: 30 de mayo de 2026.</p>
+    </div>
+  </header>
+
+  <nav class="site-nav" aria-label="Navegacion principal">
+    <div class="wrap">
+      <a href="../../index.html">Inicio</a>
+      <a href="index.html">FutureBalance</a>
+      <a href="privacy.html" aria-current="page">Politica</a>
+      <a href="manual.html">Manual</a>
+      <a href="account-deletion.html">Eliminar cuenta</a>
+    </div>
+  </nav>
+
+  <main class="page">
+    <div class="wrap doc-layout">
+      <article class="document">
+        <h2 id="resumen">Resumen</h2>
+        <p>
+          Esta politica explica como <strong>FutureBalance</strong> ("la app") trata los datos
+          del usuario. FutureBalance es una app de finanzas personales manuales para registrar
+          ingresos, gastos, transferencias, tarjetas, pagos, deudas, presupuestos, reportes y
+          proyeccion de saldo futuro. La app no se conecta a bancos y no solicita credenciales bancarias.
+        </p>
+        <p>
+          Desarrollador y contacto de privacidad: <strong>ACKA94 / Carlos Alcivar</strong>,
+          <a href="mailto:ka94desarrollo@gmail.com">ka94desarrollo@gmail.com</a>.
+          Paquete Android: <code>com.futurebalance.micartera</code>.
+        </p>
+
+        <h2 id="datos">Datos que tratamos</h2>
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th>Categoria</th>
+              <th>Ejemplos</th>
+              <th>Origen</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Cuenta e identidad</td>
+              <td>UID de Firebase, correo, nombre, foto de perfil si Google la entrega, proveedor de acceso y timestamps basicos.</td>
+              <td>Firebase Authentication, Google Sign-In o registro por correo.</td>
+            </tr>
+            <tr>
+              <td>Perfil remoto basico</td>
+              <td>Documento de usuario y perfil principal para identificar cuenta, plan/licencia y soporte.</td>
+              <td>Cloud Firestore con reglas por usuario.</td>
+            </tr>
+            <tr>
+              <td>Datos financieros manuales</td>
+              <td>Carteras, tarjetas, categorias, movimientos, transferencias, compras con tarjeta, pagos, deudas, prestamos, cuotas, paquetes, presupuestos y proyecciones.</td>
+              <td>Datos ingresados manualmente por el usuario; en Free/Pro se guardan localmente en SQLite/Drift.</td>
+            </tr>
+            <tr>
+              <td>Backups y exportaciones</td>
+              <td>Archivos JSON/ZIP de respaldo, CSV exportado, imagenes personalizadas de categorias y paquetes de restauracion.</td>
+              <td>Acciones iniciadas por el usuario o backup automatico Pro cuando este habilitado.</td>
+            </tr>
+            <tr>
+              <td>Compras y plan</td>
+              <td>Estado Free/Pro, producto, token de compra, verificacion backend y cambios administrados de plan.</td>
+              <td>Google Play Billing, Cloud Functions y Firestore.</td>
+            </tr>
+            <tr>
+              <td>Diagnostico y uso tecnico</td>
+              <td>Eventos tecnicos, version, fallos, rendimiento y datos necesarios para estabilidad.</td>
+              <td>Firebase Analytics, Crashlytics y servicios del sistema.</td>
+            </tr>
+            <tr>
+              <td>Soporte y avisos gestionados</td>
+              <td>Tickets, mensajes, estado de soporte, avisos de mantenimiento de servicio o actualizaciones administradas.</td>
+              <td>Funciones de soporte/ACKA94 y datos enviados por el usuario.</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <h2 id="uso">Como usamos los datos</h2>
+        <ul>
+          <li>Crear, proteger y recuperar la cuenta del usuario.</li>
+          <li>Guardar localmente los datos financieros que el usuario registra.</li>
+          <li>Calcular saldos, reportes, presupuestos, proyecciones y pagos exigibles sin conexion bancaria.</li>
+          <li>Crear backups locales, compartir exportaciones CSV y guardar backups en Google Drive AppData cuando el usuario lo autoriza.</li>
+          <li>Verificar compras Pro y aplicar beneficios sin autoconceder licencias desde el cliente.</li>
+          <li>Programar notificaciones locales de pagos, deudas, prestamos, paquetes, presupuestos, proyeccion y actualizaciones.</li>
+          <li>Detectar fallos, mejorar estabilidad y proteger la app contra abuso.</li>
+          <li>Resolver tickets de soporte y mostrar avisos operativos administrados.</li>
+        </ul>
+
+        <h2 id="permisos">Permisos y funciones sensibles</h2>
+        <h3>Internet</h3>
+        <p>
+          La app usa Internet para Firebase Auth, perfil remoto basico, verificacion de plan,
+          Google Sign-In, Google Drive AppData, consultas de tipo de cambio y actualizaciones.
+        </p>
+        <h3>Notificaciones</h3>
+        <p>
+          La app puede solicitar <code>POST_NOTIFICATIONS</code> para avisos locales. El usuario
+          puede controlar canales y recordatorios desde Ajustes y desde cada registro compatible.
+        </p>
+        <h3>Archivos e imagenes</h3>
+        <p>
+          La app puede abrir selectores del sistema para backups, exportaciones CSV e imagenes
+          personalizadas de categorias. No guarda PIN, contrasenas, tokens bancarios ni datos
+          biometricos en texto plano.
+        </p>
+
+        <h2 id="terceros">Servicios de terceros</h2>
+        <ul>
+          <li><strong>Firebase Authentication</strong>: inicio de sesion por Google o correo/contrasena.</li>
+          <li><strong>Cloud Firestore</strong>: perfil basico, plan/licencia, soporte y avisos administrados; no es fuente operativa principal de datos financieros Free/Pro.</li>
+          <li><strong>Firebase Crashlytics y Analytics</strong>: estabilidad, diagnostico y eventos tecnicos. No deben capturar contenido financiero sensible.</li>
+          <li><strong>Google Drive AppData</strong>: backups de datos operativos cuando el usuario guarda/restaura desde Drive o cuando Pro habilita backup automatico.</li>
+          <li><strong>Google Play Billing</strong>: compra Pro y restauracion/sincronizacion de compra.</li>
+          <li><strong>api.frankfurter.dev</strong>: tasas de cambio publicas sin API key; no requiere enviar movimientos financieros del usuario.</li>
+        </ul>
+        <p>
+          La version actual de FutureBalance no declara Google Mobile Ads como SDK activo. Si se agregan
+          anuncios en una version futura, esta politica y el formulario Data safety se actualizaran antes
+          de publicar esa version.
+        </p>
+        <p>La app no vende datos personales ni datos financieros del usuario.</p>
+
+        <h2 id="seguridad">Seguridad</h2>
+        <p>
+          FutureBalance usa autenticacion de Firebase, reglas Firestore por usuario, almacenamiento local
+          privado mediante SQLite/Drift, transacciones locales para restauracion, validaciones antes de
+          importar backups y cifrado de transporte cuando los datos viajan por red. Los datos financieros
+          Free/Pro son local-first; cualquier sincronizacion cloud operativa queda reservada para una fase
+          futura explicita.
+        </p>
+
+        <h2 id="retencion">Retencion y eliminacion</h2>
+        <p>
+          Conservamos datos mientras la cuenta este activa o mientras sean necesarios para prestar el
+          servicio, respaldar compras, prevenir fraude, resolver soporte o cumplir obligaciones legales.
+          Los datos guardados solo en el dispositivo pueden eliminarse borrando datos de la app o
+          desinstalandola. Los backups exportados o compartidos por el usuario deben eliminarse desde el
+          lugar donde fueron guardados.
+        </p>
+        <p>
+          Para solicitar eliminacion de cuenta y datos asociados, usa la pagina:
+          <a href="account-deletion.html">Eliminar cuenta de FutureBalance</a>.
+        </p>
+
+        <h2 id="menores">Menores</h2>
+        <p>
+          FutureBalance no esta dirigida a ninos. Si crees que un menor envio datos personales sin
+          autorizacion, escribe a <a href="mailto:ka94desarrollo@gmail.com">ka94desarrollo@gmail.com</a>.
+        </p>
+
+        <h2 id="cambios">Cambios</h2>
+        <p>
+          Podemos actualizar esta politica cuando cambien funciones, proveedores, permisos o practicas de
+          datos. Publicaremos la version vigente con su fecha de actualizacion.
+        </p>
+
+        <div class="note">
+          <strong>Nota para Play Console:</strong> esta politica debe mantenerse coherente con el
+          formulario Data safety, la declaracion de cuenta, permisos, compras y la pagina de eliminacion
+          configurada para FutureBalance.
+        </div>
+      </article>
+
+      <aside class="toc" aria-label="Contenido">
+        <h2>Contenido</h2>
+        <a href="#resumen">Resumen</a>
+        <a href="#datos">Datos</a>
+        <a href="#uso">Uso</a>
+        <a href="#permisos">Permisos</a>
+        <a href="#terceros">Terceros</a>
+        <a href="#seguridad">Seguridad</a>
+        <a href="#retencion">Retencion</a>
+        <a href="#menores">Menores</a>
+        <a href="#cambios">Cambios</a>
+      </aside>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <p>&copy; 2026 ACKA94. Contacto: <a href="mailto:ka94desarrollo@gmail.com">ka94desarrollo@gmail.com</a>.</p>
+    </div>
+  </footer>
+</body>
+</html>

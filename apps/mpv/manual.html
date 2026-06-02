@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Manual de Uso - My Vehicle Planner</title>
+  <meta name="description" content="Manual de uso de My Vehicle Planner." />
+  <link rel="stylesheet" href="../../assets/site.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="wrap">
+      <p class="eyebrow">My Vehicle Planner</p>
+      <h1>Manual de uso</h1>
+      <p>Guia para administrar vehiculos, mantenimientos, gastos, combustible, documentos y backups.</p>
+    </div>
+  </header>
+
+  <nav class="site-nav" aria-label="Navegacion principal">
+    <div class="wrap">
+      <a href="../../index.html">Inicio</a>
+      <a href="index.html">MPV</a>
+      <a href="privacy.html">Politica</a>
+      <a href="manual.html" aria-current="page">Manual</a>
+      <a href="account-deletion.html">Eliminar cuenta</a>
+    </div>
+  </nav>
+
+  <main class="page">
+    <div class="wrap doc-layout">
+      <article class="document">
+        <h2 id="primer-ingreso">Primer ingreso</h2>
+        <ol>
+          <li>Abre la app e inicia sesion con Google o correo/contrasena.</li>
+          <li>Si no tienes vehiculos, usa <code>Agregar mi primer vehiculo</code>.</li>
+          <li>Completa alias, marca, modelo, ano y kilometraje actual.</li>
+          <li>Guarda el vehiculo para entrar al resumen principal.</li>
+        </ol>
+        <p>
+          Si ya tienes vehiculos registrados, la app abre el vehiculo activo y permite cambiarlo
+          desde el selector o desde el garaje.
+        </p>
+
+        <h2 id="navegacion">Navegacion principal</h2>
+        <p>La pantalla del vehiculo activo se organiza en cinco pestanas:</p>
+        <ul>
+          <li><strong>Resumen:</strong> estado, avisos, acciones rapidas y costos principales.</li>
+          <li><strong>Mant.:</strong> historial de mantenimientos, avisos, recurrencias y garantias.</li>
+          <li><strong>Gastos:</strong> costos generales asociados al vehiculo.</li>
+          <li><strong>Consumo:</strong> repostajes, tanque lleno, rendimiento y costo por km.</li>
+          <li><strong>Analisis:</strong> proyeccion, gastos, combustible, mantenimiento y actividad reciente.</li>
+        </ul>
+
+        <h2 id="garaje">Garaje y vehiculos</h2>
+        <h3>Registrar o editar</h3>
+        <ol>
+          <li>Entra a <code>Ver garaje</code> o usa la accion de agregar vehiculo.</li>
+          <li>Elige Auto o Moto cuando corresponda.</li>
+          <li>Completa datos principales y opcionales como foto, placa, VIN, combustible, tanque, aceite y llantas.</li>
+          <li>Guarda los cambios.</li>
+        </ol>
+        <h3>Eliminar</h3>
+        <p>
+          La app protege vehiculos con datos asociados. Si tiene mantenimientos, gastos,
+          repostajes, documentos o viajes, revisa primero el historial antes de eliminar.
+        </p>
+
+        <h2 id="mantenimiento">Mantenimientos</h2>
+        <ol>
+          <li>Entra a <code>Mant.</code> y presiona <code>Nuevo</code>.</li>
+          <li>Selecciona el tipo de mantenimiento y agrega kilometraje, costo y fecha.</li>
+          <li>Opcionalmente agrega trabajos internos, partes, mano de obra, taller, notas, adjuntos y garantia.</li>
+          <li>Configura vencimiento por fecha, kilometraje o recurrencia si quieres avisos futuros.</li>
+        </ol>
+        <p>
+          Los estados principales son <code>Sin vencimiento</code>, <code>Al dia</code>,
+          <code>Proximo</code> y <code>Vencido</code>. Desde un aviso puedes registrar el
+          mantenimiento actual o cerrar el aviso.
+        </p>
+
+        <h2 id="gastos">Gastos</h2>
+        <p>
+          Usa <code>Gastos</code> para costos que no son combustible ni necesariamente mantenimiento:
+          parqueo, peajes, multas, lavados, accesorios u otros.
+        </p>
+        <ol>
+          <li>Presiona <code>Nuevo</code>.</li>
+          <li>Selecciona tipo, monto y fecha.</li>
+          <li>Agrega kilometraje, notas o adjuntos si aplica.</li>
+          <li>Guarda el gasto.</li>
+        </ol>
+
+        <h2 id="consumo">Consumo de combustible</h2>
+        <ol>
+          <li>Entra a <code>Consumo</code> o usa el acceso rapido desde Resumen.</li>
+          <li>Completa kilometraje, combustible, costo total, precio por unidad, volumen y fecha.</li>
+          <li>Marca <code>tanque lleno</code> solo cuando realmente corresponda.</li>
+          <li>Guarda el repostaje.</li>
+        </ol>
+        <p>
+          El rendimiento es mas confiable cuando existen ciclos completos de tanque lleno a tanque lleno.
+          En Pro, si usas Modo viaje, puedes filtrar consumo por viaje o sin viaje.
+        </p>
+
+        <h2 id="documentos">Documentos y adjuntos</h2>
+        <p>
+          Puedes adjuntar imagenes, PDF o documentos a vehiculos, mantenimientos y gastos. Las fotos
+          pueden tomarse con la camara si aceptas el permiso. Los PDF y documentos se abren con una
+          app externa compatible.
+        </p>
+
+        <h2 id="analisis">Analisis</h2>
+        <p>
+          La seccion de analisis combina mantenimientos, gastos, repostajes y preferencias de unidades
+          para mostrar resumen ejecutivo, proyeccion de kilometraje, gastos generales, combustible,
+          mantenimiento, actividad reciente y detalles complementarios.
+        </p>
+
+        <h2 id="planes">Plan Gratis y Pro</h2>
+        <ul>
+          <li><strong>Gratis:</strong> un vehiculo, datos local-first, backup manual y anuncios discretos.</li>
+          <li><strong>Pro:</strong> hasta cinco vehiculos, sin anuncios, backup automatico inteligente, modo viaje y beneficios de comodidad.</li>
+          <li><strong>Premium:</strong> arquitectura futura para nube/sync, no promocionada como producto principal.</li>
+        </ul>
+
+        <h2 id="backup">Backup y restauracion</h2>
+        <p>
+          El backup manual esta disponible para todos. En Pro, el backup automatico puede ejecutarse en
+          momentos seguros como inicio, reanudacion o activacion desde Ajustes, evitando duplicados cuando
+          no hay cambios.
+        </p>
+        <ol>
+          <li>Entra a <code>Ajustes</code> y luego a <code>Backup</code>.</li>
+          <li>Usa <code>Crear backup ahora</code> para generar un respaldo.</li>
+          <li>Usa <code>Restaurar desde backup</code> solo despues de revisar la advertencia.</li>
+        </ol>
+
+        <h2 id="ajustes">Ajustes y soporte</h2>
+        <p>
+          Ajustes agrupa cuenta y acceso, ayuda y soporte, planes, backup, notificaciones,
+          actualizaciones de la app, analitica vehicular y preferencias de tema, idioma y unidades.
+        </p>
+        <p>
+          Para dudas o problemas, escribe desde Ayuda y soporte o envia un correo a
+          <a href="mailto:ka94desarrollo@gmail.com">ka94desarrollo@gmail.com</a>.
+        </p>
+      </article>
+
+      <aside class="toc" aria-label="Contenido">
+        <h2>Contenido</h2>
+        <a href="#primer-ingreso">Primer ingreso</a>
+        <a href="#navegacion">Navegacion</a>
+        <a href="#garaje">Garaje</a>
+        <a href="#mantenimiento">Mantenimientos</a>
+        <a href="#gastos">Gastos</a>
+        <a href="#consumo">Consumo</a>
+        <a href="#documentos">Documentos</a>
+        <a href="#analisis">Analisis</a>
+        <a href="#planes">Planes</a>
+        <a href="#backup">Backup</a>
+        <a href="#ajustes">Ajustes</a>
+      </aside>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <p>&copy; 2026 ACKA94. Contacto: <a href="mailto:ka94desarrollo@gmail.com">ka94desarrollo@gmail.com</a>.</p>
+    </div>
+  </footer>
+</body>
+</html>

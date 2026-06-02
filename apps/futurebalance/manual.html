@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Manual de Uso - FutureBalance</title>
+  <meta name="description" content="Manual de uso de FutureBalance." />
+  <link rel="stylesheet" href="../../assets/site.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="wrap">
+      <p class="eyebrow">FutureBalance</p>
+      <h1>Manual de uso</h1>
+      <p>Guia para registrar dinero manualmente, revisar saldos y proyectar decisiones futuras.</p>
+    </div>
+  </header>
+
+  <nav class="site-nav" aria-label="Navegacion principal">
+    <div class="wrap">
+      <a href="../../index.html">Inicio</a>
+      <a href="index.html">FutureBalance</a>
+      <a href="privacy.html">Politica</a>
+      <a href="manual.html" aria-current="page">Manual</a>
+      <a href="account-deletion.html">Eliminar cuenta</a>
+    </div>
+  </nav>
+
+  <main class="page">
+    <div class="wrap doc-layout">
+      <article class="document">
+        <h2 id="primer-ingreso">Primer ingreso</h2>
+        <ol>
+          <li>Abre la app e inicia sesion con Google o correo/contrasena.</li>
+          <li>Configura tus preferencias basicas de idioma, moneda principal y formato.</li>
+          <li>Crea tu primera cartera para representar efectivo, banco manual, billetera digital u otro saldo.</li>
+          <li>Registra movimientos manualmente. FutureBalance no se conecta a bancos.</li>
+        </ol>
+
+        <h2 id="navegacion">Navegacion principal</h2>
+        <p>El shell principal tiene cinco destinos:</p>
+        <ul>
+          <li><strong>Inicio:</strong> resumen ejecutivo, dinero actual, este mes, accesos rapidos y actividad reciente.</li>
+          <li><strong>Cuentas:</strong> carteras y tarjetas.</li>
+          <li><strong>Movs:</strong> movimientos, filtros y registro rapido.</li>
+          <li><strong>Pagos:</strong> ingresos, pagos, paquetes, deudas y prestamos.</li>
+          <li><strong>Analisis:</strong> reportes, proyeccion y presupuestos.</li>
+        </ul>
+
+        <h2 id="cuentas">Carteras y tarjetas</h2>
+        <h3>Carteras</h3>
+        <p>
+          Usa carteras para representar saldos manuales: efectivo, banco manual, billetera digital,
+          tarjeta de debito u otro contenedor de dinero. Las transferencias mueven saldo entre carteras
+          de la misma moneda.
+        </p>
+        <h3>Tarjetas</h3>
+        <p>
+          Registra tarjetas para controlar limite, usado, disponible, corte, fecha de pago,
+          compras con tarjeta, pagos y compras diferidas. La app calcula deuda y pago exigible a partir
+          de movimientos registrados.
+        </p>
+
+        <h2 id="movimientos">Movimientos</h2>
+        <p>FutureBalance soporta estos tipos principales:</p>
+        <ul>
+          <li><strong>Ingreso:</strong> entra dinero a una cartera.</li>
+          <li><strong>Gasto:</strong> sale dinero desde una cartera.</li>
+          <li><strong>Transferencia:</strong> mueve dinero entre carteras.</li>
+          <li><strong>Compra con tarjeta:</strong> registra consumo sin descontar cartera hasta el pago.</li>
+          <li><strong>Pago de tarjeta:</strong> descuenta la cartera origen y reduce deuda de tarjeta.</li>
+        </ul>
+        <p>
+          Para mantener calculos confiables, usa montos reales, fechas correctas y categorias consistentes.
+        </p>
+
+        <h2 id="pagos">Pagos, deudas y paquetes</h2>
+        <p>
+          El area <code>Pagos</code> permite administrar ingresos programados, pagos recurrentes,
+          paquetes de transacciones, deudas y prestamos. Los paquetes ayudan a revisar varias lineas
+          antes de aplicarlas, por ejemplo una nomina con ingreso y deducciones.
+        </p>
+        <p>
+          Las obligaciones proyectadas no crean movimientos reales hasta que el usuario confirma la aplicacion.
+        </p>
+
+        <h2 id="proyeccion">Proyeccion</h2>
+        <p>
+          La proyeccion estima saldos futuros usando saldo actual, pagos programados, ingresos,
+          deudas, prestamos, tarjetas y cuotas. Muestra saldo minimo, posible fecha negativa y
+          monto libre estimado dentro del rango seleccionado.
+        </p>
+
+        <h2 id="presupuestos">Presupuestos</h2>
+        <p>
+          Un presupuesto es un limite mensual de gasto por categoria y moneda. No mueve dinero,
+          no crea pagos, no reserva saldo, no crea deuda y no es una meta de ahorro. Sirve para
+          entender cuanto has usado y cuanto queda disponible en esa categoria.
+        </p>
+
+        <h2 id="reportes">Reportes</h2>
+        <p>
+          Reportes muestra resumen de periodo, gastos por categoria, flujo por cuenta, tarjetas,
+          tendencia historica, presupuesto y movimientos destacados. Las compras con tarjeta cuentan
+          como gasto; los pagos de tarjeta no se duplican como gasto global.
+        </p>
+
+        <h2 id="backup">Backup, restore y exportacion</h2>
+        <ul>
+          <li><strong>Crear backup manual:</strong> genera un archivo de respaldo local para compartir o guardar.</li>
+          <li><strong>Guardar backup en Drive:</strong> sube el respaldo a Google Drive AppData cuando el usuario lo autoriza.</li>
+          <li><strong>Restaurar desde Drive:</strong> valida el respaldo antes de aplicarlo.</li>
+          <li><strong>Exportar CSV:</strong> comparte movimientos en formato CSV para uso externo.</li>
+        </ul>
+        <p>
+          Antes de restaurar, revisa si quieres combinar o reemplazar datos y confirma la frase solicitada.
+        </p>
+
+        <h2 id="ajustes">Ajustes, seguridad y notificaciones</h2>
+        <p>
+          En Ajustes puedes cambiar tema, idioma, moneda principal, formato de montos, backup,
+          notificaciones, actualizaciones, cuenta, plan, seguridad local y soporte.
+        </p>
+        <p>
+          La seguridad local puede usar PIN de app y, cuando este disponible, desbloqueo biometrico
+          del dispositivo. La app no guarda el PIN en texto plano.
+        </p>
+
+        <h2 id="planes">Plan Gratis y Pro</h2>
+        <ul>
+          <li><strong>Gratis:</strong> datos financieros local-first, temas Dia/Noche y backup manual.</li>
+          <li><strong>Pro:</strong> beneficios visuales, sin anuncios si en el futuro se activan, backup automatico y funciones ampliadas definidas por licencia.</li>
+          <li><strong>Premium oculto:</strong> reservado para una fase futura de sincronizacion cloud, no visible como producto principal.</li>
+        </ul>
+
+        <h2 id="buenas-practicas">Buenas practicas</h2>
+        <ul>
+          <li>Registra movimientos el mismo dia para que reportes y proyeccion sean confiables.</li>
+          <li>No guardes claves bancarias, PINes reales de tarjetas ni datos que no necesites.</li>
+          <li>Revisa presupuestos y proyeccion antes de asumir compromisos futuros.</li>
+          <li>Crea backup manual antes de restaurar o hacer cambios grandes.</li>
+        </ul>
+      </article>
+
+      <aside class="toc" aria-label="Contenido">
+        <h2>Contenido</h2>
+        <a href="#primer-ingreso">Primer ingreso</a>
+        <a href="#navegacion">Navegacion</a>
+        <a href="#cuentas">Cuentas</a>
+        <a href="#movimientos">Movimientos</a>
+        <a href="#pagos">Pagos</a>
+        <a href="#proyeccion">Proyeccion</a>
+        <a href="#presupuestos">Presupuestos</a>
+        <a href="#reportes">Reportes</a>
+        <a href="#backup">Backup</a>
+        <a href="#ajustes">Ajustes</a>
+        <a href="#planes">Planes</a>
+      </aside>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <p>&copy; 2026 ACKA94. Contacto: <a href="mailto:ka94desarrollo@gmail.com">ka94desarrollo@gmail.com</a>.</p>
+    </div>
+  </footer>
+</body>
+</html>

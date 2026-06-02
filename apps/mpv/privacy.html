@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Politica de Privacidad - My Vehicle Planner</title>
+  <meta name="description" content="Politica de privacidad de My Vehicle Planner para Google Play y usuarios de la app." />
+  <link rel="stylesheet" href="../../assets/site.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="wrap">
+      <p class="eyebrow">My Vehicle Planner</p>
+      <h1>Politica de Privacidad</h1>
+      <p>Ultima actualizacion: 30 de mayo de 2026.</p>
+    </div>
+  </header>
+
+  <nav class="site-nav" aria-label="Navegacion principal">
+    <div class="wrap">
+      <a href="../../index.html">Inicio</a>
+      <a href="index.html">MPV</a>
+      <a href="privacy.html" aria-current="page">Politica</a>
+      <a href="manual.html">Manual</a>
+      <a href="account-deletion.html">Eliminar cuenta</a>
+    </div>
+  </nav>
+
+  <main class="page">
+    <div class="wrap doc-layout">
+      <article class="document">
+        <h2 id="resumen">Resumen</h2>
+        <p>
+          Esta politica explica como <strong>My Vehicle Planner</strong> ("MPV", "la app")
+          trata los datos del usuario. La app ayuda a administrar vehiculos, mantenimientos,
+          gastos, repostajes, documentos, backups, avisos, widgets y analisis vehicular.
+        </p>
+        <p>
+          Desarrollador y contacto de privacidad: <strong>ACKA94 / Carlos Alcivar</strong>,
+          <a href="mailto:ka94desarrollo@gmail.com">ka94desarrollo@gmail.com</a>.
+          Paquete Android: <code>com.carlosalcivar.mpv</code>.
+        </p>
+
+        <h2 id="datos">Datos que tratamos</h2>
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th>Categoria</th>
+              <th>Ejemplos</th>
+              <th>Origen</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Cuenta e identidad</td>
+              <td>UID de Firebase, correo, nombre, foto de perfil si Google la entrega, proveedores de inicio de sesion.</td>
+              <td>Firebase Authentication, Google Sign-In o registro por correo.</td>
+            </tr>
+            <tr>
+              <td>Datos vehiculares</td>
+              <td>Vehiculos, marca, modelo, ano, kilometraje, placa/VIN si el usuario los escribe, aceite, llantas y preferencias.</td>
+              <td>Datos ingresados por el usuario.</td>
+            </tr>
+            <tr>
+              <td>Registros operativos</td>
+              <td>Mantenimientos, gastos, repostajes, documentos, adjuntos, garantias, avisos, sesiones de viaje y analisis derivados.</td>
+              <td>Datos ingresados por el usuario y calculos de la app.</td>
+            </tr>
+            <tr>
+              <td>Archivos, fotos y documentos</td>
+              <td>Fotos de vehiculos, fotos de mantenimiento/gasto, PDF u otros documentos adjuntos.</td>
+              <td>Camara, selector de archivos o galeria, siempre por accion del usuario.</td>
+            </tr>
+            <tr>
+              <td>Compras y plan</td>
+              <td>Estado Free/Pro/Premium, producto comprado, token de compra, estado de verificacion y cambios de plan.</td>
+              <td>Google Play Billing, Cloud Functions y Firestore.</td>
+            </tr>
+            <tr>
+              <td>Soporte</td>
+              <td>Tickets, mensajes, estado del caso, app asociada y auditoria tecnica necesaria para resolver solicitudes.</td>
+              <td>Mensajes enviados por el usuario desde Ayuda y soporte.</td>
+            </tr>
+            <tr>
+              <td>Diagnostico, anuncios y uso tecnico</td>
+              <td>Identificadores publicitarios o de dispositivo gestionados por SDKs, eventos tecnicos, fallos, version y datos de rendimiento.</td>
+              <td>Firebase, Google Mobile Ads, Google Play Services y servicios del sistema.</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <h2 id="uso">Como usamos los datos</h2>
+        <ul>
+          <li>Crear y proteger la cuenta del usuario.</li>
+          <li>Mostrar, calcular y conservar el historial vehicular del usuario.</li>
+          <li>Permitir adjuntar fotos, PDF y documentos a vehiculos o registros.</li>
+          <li>Generar avisos de mantenimiento, garantia, actualizaciones, planes y recordatorios locales.</li>
+          <li>Crear backups manuales y, en Pro/Premium, backups automaticos cuando corresponda.</li>
+          <li>Verificar compras de Google Play y aplicar beneficios Pro sin autoconceder licencias desde el cliente.</li>
+          <li>Mostrar anuncios discretos en plan Free y ocultarlos en Pro.</li>
+          <li>Resolver tickets de soporte y comunicar avisos operativos de la app.</li>
+          <li>Mejorar estabilidad, prevenir abuso, cumplir requisitos legales y mantener seguridad.</li>
+        </ul>
+
+        <h2 id="permisos">Permisos y funciones sensibles</h2>
+        <h3>Camara y archivos</h3>
+        <p>
+          La app solicita <code>android.permission.CAMERA</code> para tomar fotos de vehiculos
+          o adjuntos cuando el usuario elige esa accion. La app no usa la camara en segundo
+          plano. Los PDF y documentos se abren mediante apps externas compatibles.
+        </p>
+        <h3>Notificaciones</h3>
+        <p>
+          La app puede solicitar <code>POST_NOTIFICATIONS</code> para avisos locales de
+          mantenimiento, garantia, planes y actualizaciones. El banner interno de actualizaciones
+          no depende del permiso de notificaciones.
+        </p>
+        <h3>Widgets Android</h3>
+        <p>
+          Los widgets muestran atajos y estado del vehiculo activo. La informacion se sincroniza
+          desde la app para mostrar kilometraje, avisos y accesos rapidos.
+        </p>
+
+        <h2 id="terceros">Servicios de terceros</h2>
+        <ul>
+          <li><strong>Firebase Authentication</strong>: inicio de sesion por Google o correo/contrasena.</li>
+          <li><strong>Cloud Firestore</strong>: perfil, plan, soporte y datos operativos cuando el plan/funcion lo requiere.</li>
+          <li><strong>Firebase Storage</strong>: archivos/adjuntos cuando el plan/funcion lo requiere.</li>
+          <li><strong>Cloud Functions</strong>: verificacion de compras y acciones backend de soporte/admin.</li>
+          <li><strong>Google Drive AppData</strong>: backups manuales y automaticos de datos/archivos operativos.</li>
+          <li><strong>Google Play Billing</strong>: compra Pro y restauracion/sincronizacion de compra.</li>
+          <li><strong>Google Mobile Ads</strong>: anuncios para usuarios Free, con controles de ubicacion y cooldown dentro de la app.</li>
+          <li><strong>NHTSA vPIC y CarQuery</strong>: ayuda de catalogo vehicular por marca/modelo/tipo de vehiculo.</li>
+        </ul>
+        <p>
+          Estos proveedores tratan datos conforme a sus propias politicas. La app no vende datos
+          personales ni datos vehiculares del usuario.
+        </p>
+
+        <h2 id="seguridad">Seguridad</h2>
+        <p>
+          Usamos autenticacion de Firebase, reglas Firestore/Storage por usuario, rutas backend
+          controladas para compras/soporte y transmision cifrada cuando los datos viajan por red.
+          Free y Pro mantienen datos operativos local-first siempre que sea posible. Ningun sistema
+          es completamente infalible, pero aplicamos medidas razonables para proteger la informacion.
+        </p>
+
+        <h2 id="retencion">Retencion y eliminacion</h2>
+        <p>
+          Conservamos datos mientras la cuenta este activa o mientras sean necesarios para prestar
+          el servicio, respaldar compras, prevenir fraude, resolver soporte o cumplir obligaciones
+          legales. Los datos guardados solo en el dispositivo pueden eliminarse borrando datos de la
+          app o desinstalandola. Los backups de Google Drive AppData pueden eliminarse como parte de
+          una solicitud de eliminacion cuando correspondan a la cuenta.
+        </p>
+        <p>
+          Para solicitar eliminacion de cuenta y datos asociados, usa la pagina:
+          <a href="account-deletion.html">Eliminar cuenta de My Vehicle Planner</a>.
+        </p>
+
+        <h2 id="menores">Menores</h2>
+        <p>
+          MPV no esta dirigida a ninos. Si crees que un menor envio datos personales sin autorizacion,
+          escribe a <a href="mailto:ka94desarrollo@gmail.com">ka94desarrollo@gmail.com</a>.
+        </p>
+
+        <h2 id="cambios">Cambios</h2>
+        <p>
+          Podemos actualizar esta politica cuando cambien funciones, proveedores, permisos o practicas
+          de datos. Publicaremos la version vigente con su fecha de actualizacion.
+        </p>
+
+        <div class="note">
+          <strong>Nota para Play Console:</strong> esta politica debe mantenerse coherente con el
+          formulario Data safety, la declaracion de anuncios, permisos y la pagina de eliminacion
+          de cuenta configurada para esta app.
+        </div>
+      </article>
+
+      <aside class="toc" aria-label="Contenido">
+        <h2>Contenido</h2>
+        <a href="#resumen">Resumen</a>
+        <a href="#datos">Datos</a>
+        <a href="#uso">Uso</a>
+        <a href="#permisos">Permisos</a>
+        <a href="#terceros">Terceros</a>
+        <a href="#seguridad">Seguridad</a>
+        <a href="#retencion">Retencion</a>
+        <a href="#menores">Menores</a>
+        <a href="#cambios">Cambios</a>
+      </aside>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <p>&copy; 2026 ACKA94. Contacto: <a href="mailto:ka94desarrollo@gmail.com">ka94desarrollo@gmail.com</a>.</p>
+    </div>
+  </footer>
+</body>
+</html>

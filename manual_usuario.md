@@ -1,5 +1,9 @@
 # Manual de usuario - MPV Mantenimiento Vehicular
 
+> Nota de mantenimiento: la version publica vigente del manual esta en
+> `apps/mpv/manual.html`. Este Markdown queda como respaldo textual historico
+> y no debe usarse como URL de Google Play Console.
+
 ## Proposito
 Este manual explica como usar la aplicacion MPV para administrar vehiculos, mantenimientos, gastos, repostajes, documentos, analisis y respaldos.
 
@@ -367,4 +371,3 @@ El backup incluye datos operativos del usuario:
 - preferencias de usuario compatibles
 
 El backup no debe modificar el estado de compra o plan del usuario.
-
