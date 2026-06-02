@@ -3,95 +3,210 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>ACKA94 - Centro de Politicas y Manuales</title>
-  <meta name="description" content="Centro publico de politicas de privacidad, manuales y enlaces de eliminacion de cuenta para las apps de ACKA94." />
+  <title>KA94 Studio - Portafolio de soluciones digitales</title>
+  <meta name="description" content="Portafolio de KA94 Studio: aplicaciones moviles, plataformas operativas, dashboards, automatizaciones e integraciones." />
   <link rel="stylesheet" href="assets/site.css" />
 </head>
 <body>
-  <header class="site-header">
+  <header class="portfolio-hero">
     <div class="wrap">
-      <p class="eyebrow">Centro documental</p>
-      <h1>Politicas y manuales por aplicacion</h1>
+      <p class="eyebrow">KA94 Studio</p>
+      <h1>Aplicaciones, plataformas y datos para ordenar operaciones reales.</h1>
       <p>
-        Paginas publicas separadas para cada app, listas para enlazar desde Google Play Console,
-        desde la app y desde soporte.
+        Construyo soluciones digitales que convierten procesos manuales en herramientas claras:
+        apps moviles, sistemas internos, dashboards, automatizaciones e integraciones entre Excel,
+        APIs y servicios existentes.
       </p>
+      <div class="hero-actions">
+        <a class="button" href="#proyectos">Ver proyectos</a>
+        <a class="button secondary" href="#contacto">Contacto</a>
+      </div>
     </div>
   </header>
 
   <nav class="site-nav" aria-label="Navegacion principal">
     <div class="wrap">
-      <a href="index.html" aria-current="page">Inicio</a>
-      <a href="apps/mpv/">My Vehicle Planner</a>
-      <a href="apps/futurebalance/">FutureBalance</a>
-      <a href="#google-play">Google Play</a>
+      <a href="index.html" aria-current="page">Portafolio</a>
+      <a href="#proyectos">Proyectos</a>
+      <a href="#servicios">Servicios</a>
+      <a href="#play">Google Play</a>
+      <a href="#contacto">Contacto</a>
     </div>
   </nav>
 
   <main class="page">
     <div class="wrap">
-      <section class="grid" aria-label="Aplicaciones publicadas">
-        <article class="app-card">
-          <header>
-            <img class="app-logo" src="assets/branding/mpv_logo.png" alt="Logo de My Vehicle Planner" />
-            <div>
-              <h2>My Vehicle Planner</h2>
-              <p class="muted">Mantenimiento vehicular, gastos, combustible, documentos, backups y avisos.</p>
+      <section class="metric-row" aria-label="Resumen de capacidades">
+        <div class="metric">
+          <strong>Apps</strong>
+          <span>Flutter, Firebase, Play Billing, soporte y politicas publicas.</span>
+        </div>
+        <div class="metric">
+          <strong>Web</strong>
+          <span>Angular, NestJS, MySQL, Prisma y paneles operativos.</span>
+        </div>
+        <div class="metric">
+          <strong>Datos</strong>
+          <span>Power BI, reporteria, indicadores y tableros ejecutivos.</span>
+        </div>
+        <div class="metric">
+          <strong>Integracion</strong>
+          <span>Excel, APIs, tokens, automatizaciones y servicios internos.</span>
+        </div>
+      </section>
+
+      <section class="panel">
+        <h2>Enfoque</h2>
+        <p>
+          El objetivo no es solo programar pantallas. Es entender el flujo real de trabajo,
+          reducir friccion, cuidar datos sensibles y dejar herramientas que puedan mantenerse
+          vivas: documentadas, con roles claros y con rutas de soporte cuando el proyecto lo necesita.
+        </p>
+      </section>
+
+      <h2 class="section-title" id="proyectos">Proyectos destacados</h2>
+      <section class="grid" aria-label="Proyectos destacados">
+        <article class="project-card">
+          <img class="project-media logo-media" src="assets/branding/mpv_logo.png" alt="Logo de My Vehicle Planner" />
+          <div class="project-body">
+            <h2>My Vehicle Planner</h2>
+            <p>
+              App Android para administrar vehiculos, mantenimientos, gastos, combustible,
+              documentos, backups, avisos y analisis.
+            </p>
+            <div class="tag-row">
+              <span class="tag">Flutter</span>
+              <span class="tag">Firebase</span>
+              <span class="tag">Google Play</span>
+              <span class="tag">Drive backup</span>
             </div>
-          </header>
-          <div class="tag-row" aria-label="Estado documental">
-            <span class="tag ok">Politica separada</span>
-            <span class="tag ok">Manual separado</span>
-            <span class="tag ok">Eliminacion de cuenta</span>
-          </div>
-          <p>
-            App Android local-first con Firebase Auth, Firestore/Storage segun plan, Google Drive AppData,
-            Play Billing, Mobile Ads, notificaciones y permiso de camara iniciado por el usuario.
-          </p>
-          <div class="actions">
-            <a class="button" href="apps/mpv/privacy.html">Politica</a>
-            <a class="button secondary" href="apps/mpv/manual.html">Manual</a>
-            <a class="button secondary" href="apps/mpv/account-deletion.html">Eliminar cuenta</a>
+            <div class="actions">
+              <a class="button" href="apps/mpv/">Ver ficha</a>
+              <a class="button secondary" href="apps/mpv/privacy.html">Politica</a>
+            </div>
           </div>
         </article>
 
-        <article class="app-card">
-          <header>
-            <img class="app-logo" src="assets/branding/futurebalance_logo.png" alt="Logo de FutureBalance" />
-            <div>
-              <h2>FutureBalance</h2>
-              <p class="muted">Finanzas personales manuales, saldos futuros, tarjetas, presupuestos y backups.</p>
+        <article class="project-card">
+          <img class="project-media logo-media" src="assets/branding/futurebalance_logo.png" alt="Logo de FutureBalance" />
+          <div class="project-body">
+            <h2>FutureBalance</h2>
+            <p>
+              App de finanzas personales manuales para registrar movimientos, tarjetas,
+              pagos, presupuestos, reportes y proyeccion de saldo futuro.
+            </p>
+            <div class="tag-row">
+              <span class="tag">Flutter</span>
+              <span class="tag">SQLite local</span>
+              <span class="tag">Firebase Auth</span>
+              <span class="tag">Reportes</span>
             </div>
-          </header>
-          <div class="tag-row" aria-label="Estado documental">
-            <span class="tag ok">Politica separada</span>
-            <span class="tag ok">Manual separado</span>
-            <span class="tag ok">Eliminacion de cuenta</span>
+            <div class="actions">
+              <a class="button" href="apps/futurebalance/">Ver ficha</a>
+              <a class="button secondary" href="apps/futurebalance/privacy.html">Politica</a>
+            </div>
           </div>
-          <p>
-            App Android local-first con Firebase Auth, perfil basico en Firestore, Crashlytics/Analytics,
-            Google Drive AppData, compras Pro, notificaciones y datos financieros guardados localmente.
-          </p>
-          <div class="actions">
-            <a class="button" href="apps/futurebalance/privacy.html">Politica</a>
-            <a class="button secondary" href="apps/futurebalance/manual.html">Manual</a>
-            <a class="button secondary" href="apps/futurebalance/account-deletion.html">Eliminar cuenta</a>
+        </article>
+
+        <article class="project-card">
+          <img class="project-media" src="assets/projects/acka94-card.png" alt="Ilustracion de ACKA94 Admin Center" />
+          <div class="project-body">
+            <h2>ACKA94 Admin Center</h2>
+            <p>
+              Panel privado multiapp para administrar usuarios, planes, soporte,
+              avisos, roles, politicas de version y auditoria.
+            </p>
+            <div class="tag-row">
+              <span class="tag">Flutter Web</span>
+              <span class="tag">Firebase</span>
+              <span class="tag">Cloud Functions</span>
+              <span class="tag">Auditoria</span>
+            </div>
+            <div class="actions">
+              <a class="button" href="projects/acka94/">Ver caso</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="project-card">
+          <img class="project-media logo-media" src="assets/branding/saturn-logo.png" alt="Logo de SATURNO Turnero" />
+          <div class="project-body">
+            <h2>SATURNO Turnero</h2>
+            <p>
+              Plataforma de turnos con emision publica e interna, roles, operador,
+              monitor de cola, pantallas TV, multimedia y voz.
+            </p>
+            <div class="tag-row">
+              <span class="tag">Angular</span>
+              <span class="tag">NestJS</span>
+              <span class="tag">MySQL</span>
+              <span class="tag">Prisma</span>
+            </div>
+            <div class="actions">
+              <a class="button" href="projects/turnero/">Ver caso</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="project-card">
+          <img class="project-media" src="assets/projects/gectexcel-card.png" alt="Ilustracion de servicio Excel API" />
+          <div class="project-body">
+            <h2>GeCTExcel</h2>
+            <p>
+              Servicio interno para centralizar autenticacion de una API externa y permitir
+              que multiples archivos Excel consulten sin invalidar tokens.
+            </p>
+            <div class="tag-row">
+              <span class="tag">FastAPI</span>
+              <span class="tag">Excel</span>
+              <span class="tag">Proxy API</span>
+              <span class="tag">Windows service</span>
+            </div>
+            <div class="actions">
+              <a class="button" href="projects/gectexcel/">Ver caso</a>
+            </div>
           </div>
         </article>
       </section>
 
-      <section class="panel" id="google-play">
-        <h2>Uso recomendado en Google Play Console</h2>
+      <h2 class="section-title" id="servicios">Lineas de trabajo</h2>
+      <section class="grid three" aria-label="Servicios">
+        <article class="service-card">
+          <h2>Aplicaciones moviles</h2>
+          <p>
+            Apps Android con autenticacion, datos locales, backups, planes Free/Pro,
+            compras, soporte y cumplimiento para Google Play.
+          </p>
+        </article>
+        <article class="service-card">
+          <h2>Plataformas internas</h2>
+          <p>
+            Sistemas web con roles, paneles, flujos operativos, reporteria y pantallas
+            para equipos o puntos de atencion.
+          </p>
+        </article>
+        <article class="service-card">
+          <h2>Datos y dashboards</h2>
+          <p>
+            Tableros Power BI y reportes para leer operaciones, costos, tiempos,
+            productividad y seguimiento ejecutivo.
+          </p>
+          <a class="button secondary" href="projects/bi/">Ver linea BI</a>
+        </article>
+      </section>
+
+      <section class="panel" id="play">
+        <h2>Documentacion publica para Google Play</h2>
         <p>
-          En Play Console conviene enlazar directamente la politica de cada app, no esta portada.
-          La portada sirve como indice publico y como centro de mantenimiento.
+          Las politicas y paginas de eliminacion siguen disponibles en URLs directas para
+          Play Console. La portada ahora funciona como portafolio, no como pagina legal.
         </p>
         <table class="data-table">
           <thead>
             <tr>
               <th>App</th>
-              <th>URL para Privacy Policy</th>
-              <th>URL para Data deletion</th>
+              <th>Politica</th>
+              <th>Eliminacion de cuenta</th>
             </tr>
           </thead>
           <tbody>
@@ -107,42 +222,22 @@
             </tr>
           </tbody>
         </table>
-        <p class="muted">
-          Referencias oficiales: <a href="https://support.google.com/googleplay/android-developer/answer/10144311?hl=es">User Data policy</a>,
-          <a href="https://support.google.com/googleplay/android-developer/answer/10787469?hl=es">Data safety</a> y
-          <a href="https://support.google.com/googleplay/android-developer/answer/13327111?hl=es">eliminacion de cuenta</a>.
-        </p>
       </section>
 
-      <section class="grid three" aria-label="Reglas de mantenimiento">
-        <article class="doc-card">
-          <h2>1. Una app, una politica</h2>
-          <p>
-            Cada politica debe mencionar el nombre visible, paquete Android, datos tratados,
-            terceros, permisos, anuncios, compras, backups, seguridad y contacto.
-          </p>
-        </article>
-        <article class="doc-card">
-          <h2>2. Manual aparte</h2>
-          <p>
-            El manual explica uso del producto. La politica no debe mezclar instrucciones de uso
-            con declaraciones de privacidad.
-          </p>
-        </article>
-        <article class="doc-card">
-          <h2>3. Actualizar por cambio real</h2>
-          <p>
-            Si agregas SDKs, permisos, anuncios, compras, Drive, Storage o una nueva fuente de datos,
-            actualiza la politica y el formulario Data safety.
-          </p>
-        </article>
+      <section class="panel" id="contacto">
+        <h2>Contacto</h2>
+        <p>
+          Si quieres hablar de una aplicacion, un dashboard, una plataforma interna o una
+          automatizacion entre Excel y APIs, puedes escribirme a
+          <a href="mailto:ka94desarrollo@gmail.com">ka94desarrollo@gmail.com</a>.
+        </p>
       </section>
     </div>
   </main>
 
   <footer class="site-footer">
     <div class="wrap">
-      <p>&copy; 2026 ACKA94. Contacto: <a href="mailto:ka94desarrollo@gmail.com">ka94desarrollo@gmail.com</a>.</p>
+      <p>&copy; 2026 KA94 Studio. Aplicaciones, datos y soluciones digitales.</p>
     </div>
   </footer>
 </body>

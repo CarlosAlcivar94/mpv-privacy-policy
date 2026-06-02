@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>GeCTExcel - Caso de proyecto KA94 Studio</title>
+  <meta name="description" content="Caso de proyecto GeCTExcel: servicio interno para Excel, API externa, cache de token y proxy seguro." />
+  <link rel="stylesheet" href="../../assets/site.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="wrap">
+      <p class="eyebrow">Caso de integracion</p>
+      <h1>GeCTExcel</h1>
+      <p>Servicio interno para que varios archivos Excel consuman una API externa sin compartir credenciales ni invalidar tokens.</p>
+    </div>
+  </header>
+
+  <nav class="site-nav" aria-label="Navegacion principal">
+    <div class="wrap">
+      <a href="../../index.html">Portafolio</a>
+      <a href="../turnero/">SATURNO</a>
+      <a href="../bi/">BI</a>
+      <a href="../../index.html#contacto">Contacto</a>
+    </div>
+  </nav>
+
+  <main class="page">
+    <div class="wrap">
+      <section class="project-card">
+        <img class="project-media" src="../../assets/projects/gectexcel-card.png" alt="Ilustracion de GeCTExcel" />
+        <div class="project-body">
+          <h2>Resumen</h2>
+          <p>
+            GeCTExcel centraliza autenticacion, cache de token, renovacion anticipada,
+            reintento controlado y proxy de consultas. Excel deja de guardar usuarios,
+            contrasenas o tokens y solo llama al servicio interno.
+          </p>
+          <div class="tag-row">
+            <span class="tag">FastAPI</span>
+            <span class="tag">Uvicorn</span>
+            <span class="tag">HTTPX</span>
+            <span class="tag">Excel/VBA</span>
+            <span class="tag">Windows tasks</span>
+            <span class="tag">Watchdog</span>
+          </div>
+        </div>
+      </section>
+
+      <section class="split">
+        <article class="panel">
+          <h2>Problema que resuelve</h2>
+          <p>
+            La API externa permite un solo token activo por usuario. Cuando varios Excel
+            solicitaban token por separado, una consulta podia invalidar la sesion de otra.
+            La solucion mueve la autenticacion fuera de Excel y la controla desde un servicio.
+          </p>
+          <ul class="feature-list">
+            <li>Login centralizado contra API externa.</li>
+            <li>Cache de token con bloqueo de archivo.</li>
+            <li>Renovacion antes del vencimiento.</li>
+            <li>Proxy de endpoints usados por Excel.</li>
+            <li>Reintento controlado ante 401/403.</li>
+            <li>Watchdog y arranque automatico en Windows.</li>
+          </ul>
+        </article>
+
+        <aside class="panel">
+          <h2>Arquitectura</h2>
+          <p><code>Excel -> Servicio interno -> API externa</code></p>
+          <p>
+            Los secretos viven en variables de entorno y archivos locales no versionados.
+            Los logs evitan registrar tokens completos.
+          </p>
+        </aside>
+      </section>
+
+      <section class="panel">
+        <h2>Resultado presentable</h2>
+        <p>
+          La integracion reduce fallos por tokens, evita distribuir credenciales dentro de hojas
+          Excel y permite operar el servicio en un servidor existente con health check, tareas
+          programadas, watchdog y pruebas locales sin tocar la API real.
+        </p>
+      </section>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <p>&copy; 2026 KA94 Studio. Contacto: <a href="mailto:ka94desarrollo@gmail.com">ka94desarrollo@gmail.com</a>.</p>
+    </div>
+  </footer>
+</body>
+</html>

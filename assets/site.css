@@ -19,6 +19,7 @@
 
 html {
   scroll-behavior: smooth;
+  overflow-x: hidden;
 }
 
 body {
@@ -28,6 +29,7 @@ body {
   color: var(--text);
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
   line-height: 1.65;
+  overflow-x: hidden;
 }
 
 a {
@@ -42,6 +44,52 @@ a:hover {
   background: var(--primary);
   color: #ffffff;
   border-bottom: 5px solid var(--accent);
+}
+
+.portfolio-hero {
+  min-height: min(760px, 86vh);
+  display: flex;
+  align-items: end;
+  color: #ffffff;
+  background:
+    linear-gradient(90deg, rgba(10, 20, 36, 0.94) 0%, rgba(10, 20, 36, 0.78) 48%, rgba(10, 20, 36, 0.36) 100%),
+    url("projects/portfolio-hero.png") center / cover no-repeat;
+  border-bottom: 5px solid var(--accent);
+}
+
+.portfolio-hero .wrap {
+  width: min(1120px, calc(100% - 32px));
+  margin: 0 auto;
+  padding: 82px 0 70px;
+}
+
+.portfolio-hero h1 {
+  max-width: 820px;
+}
+
+.portfolio-hero p {
+  max-width: 700px;
+  margin: 18px 0 0;
+  color: rgba(255, 255, 255, 0.86);
+  font-size: 1.08rem;
+}
+
+.hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 28px;
+}
+
+.hero-actions .button.secondary {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(255, 255, 255, 0.58);
+  color: #ffffff;
+}
+
+.hero-actions .button.secondary:hover {
+  background: rgba(255, 255, 255, 0.16);
+  color: #ffffff;
 }
 
 .site-header .wrap,
@@ -129,7 +177,9 @@ h1 {
 
 .panel,
 .app-card,
-.doc-card {
+.doc-card,
+.project-card,
+.service-card {
   background: var(--surface);
   border: 1px solid var(--line);
   border-radius: 8px;
@@ -161,7 +211,9 @@ h1 {
 }
 
 .app-card,
-.doc-card {
+.doc-card,
+.project-card,
+.service-card {
   padding: 18px;
 }
 
@@ -180,6 +232,87 @@ h1 {
   border-radius: 8px;
   background: #ffffff;
   padding: 6px;
+}
+
+.project-card {
+  padding: 0;
+  overflow: hidden;
+}
+
+.project-media {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  display: block;
+  background: var(--surface-soft);
+}
+
+.project-media.logo-media {
+  object-fit: contain;
+  padding: 34px;
+  background: #ffffff;
+}
+
+.project-body {
+  padding: 18px;
+}
+
+.project-body h2,
+.service-card h2 {
+  margin: 0 0 8px;
+  color: var(--primary);
+}
+
+.project-body p,
+.service-card p {
+  margin: 0 0 12px;
+}
+
+.metric-row {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 12px;
+  margin: 18px 0;
+}
+
+.metric {
+  padding: 16px;
+  background: #ffffff;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+}
+
+.metric strong {
+  display: block;
+  color: var(--primary);
+  font-size: 1.25rem;
+}
+
+.metric span {
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+.split {
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  gap: 18px;
+  align-items: start;
+}
+
+.feature-list {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+  padding: 0;
+  list-style: none;
+}
+
+.feature-list li {
+  padding: 12px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: #fbfdff;
 }
 
 .tag-row {
@@ -373,7 +506,10 @@ code {
 @media (max-width: 850px) {
   .grid,
   .grid.three,
-  .doc-layout {
+  .doc-layout,
+  .split,
+  .metric-row,
+  .feature-list {
     grid-template-columns: 1fr;
   }
 
@@ -381,18 +517,42 @@ code {
     position: static;
     order: -1;
   }
+
+  .portfolio-hero {
+    min-height: auto;
+  }
 }
 
 @media (max-width: 560px) {
   .site-header .wrap,
+  .portfolio-hero .wrap,
+  .site-nav .wrap,
+  .site-footer .wrap,
   .page .wrap {
     width: min(100% - 22px, 1120px);
+  }
+
+  .portfolio-hero .wrap {
+    padding: 68px 0 56px;
+  }
+
+  .portfolio-hero h1 {
+    max-width: 100%;
+    font-size: clamp(1.9rem, 8vw, 2.35rem);
+    overflow-wrap: break-word;
+  }
+
+  .portfolio-hero p {
+    max-width: 100%;
+    font-size: 0.98rem;
+    overflow-wrap: break-word;
   }
 
   .document,
   .panel,
   .app-card,
-  .doc-card {
+  .doc-card,
+  .service-card {
     padding: 16px;
   }
 
