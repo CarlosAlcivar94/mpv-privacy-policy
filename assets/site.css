@@ -109,6 +109,24 @@ a:hover {
   padding: 58px 0 48px;
 }
 
+.hero-brand-lockup {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 12px;
+}
+
+.hero-logo {
+  width: 86px;
+  height: 86px;
+  object-fit: contain;
+  filter: drop-shadow(0 10px 24px rgba(0, 0, 0, 0.42));
+}
+
+.hero-brand-lockup .eyebrow {
+  margin: 0;
+}
+
 .portfolio-hero h1 {
   max-width: 760px;
   font-size: clamp(2rem, 4.2vw, 3rem);
@@ -676,6 +694,16 @@ code {
 
   .portfolio-hero .wrap {
     padding: 46px 0 40px;
+  }
+
+  .hero-brand-lockup {
+    gap: 10px;
+    margin-bottom: 10px;
+  }
+
+  .hero-logo {
+    width: 64px;
+    height: 64px;
   }
 
   .site-header.app-title-header .wrap {
