@@ -9,6 +9,8 @@ Sitio estatico publico para KA94 Studio. Funciona como portafolio profesional y 
 - `apps/mpv/`: documentacion de My Vehicle Planner.
 - `apps/futurebalance/`: documentacion de FutureBalance.
 - `projects/acka94/`: ficha de ACKA94 Admin Center.
+- `projects/ceviflash/`: ficha de CEVIFLASH.
+- `projects/globalview/`: ficha de GLOBALVIEW.
 - `projects/turnero/`: ficha de SATURNO Turnero.
 - `projects/gectexcel/`: ficha de GeCTExcel.
 - `projects/formularios-vba/`: ficha de automatizacion Excel/VBA para formularios institucionales.
