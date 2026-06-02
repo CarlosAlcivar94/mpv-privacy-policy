@@ -95,7 +95,7 @@ a:hover {
 .portfolio-hero {
   min-height: min(560px, 68vh);
   display: flex;
-  align-items: end;
+  align-items: center;
   color: #ffffff;
   background:
     linear-gradient(90deg, rgba(10, 20, 36, 0.94) 0%, rgba(10, 20, 36, 0.78) 48%, rgba(10, 20, 36, 0.36) 100%),
@@ -106,13 +106,13 @@ a:hover {
 .portfolio-hero .wrap {
   width: min(1120px, calc(100% - 32px));
   margin: 0 auto;
-  padding: 58px 0 48px;
+  padding: 36px 0 92px;
 }
 
 .portfolio-hero .hero-layout {
   display: grid;
   grid-template-columns: minmax(210px, 300px) minmax(0, 1fr);
-  align-items: end;
+  align-items: center;
   gap: 52px;
 }
 
@@ -703,7 +703,7 @@ code {
   }
 
   .portfolio-hero .wrap {
-    padding: 46px 0 40px;
+    padding: 34px 0 52px;
   }
 
   .portfolio-hero .hero-layout {
