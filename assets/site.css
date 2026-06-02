@@ -235,6 +235,80 @@ h1 {
   padding: 6px;
 }
 
+.app-showcase {
+  margin-bottom: 18px;
+  overflow: hidden;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  box-shadow: var(--shadow);
+}
+
+.app-showcase-art {
+  display: block;
+  width: 100%;
+  aspect-ratio: 1794 / 876;
+  object-fit: cover;
+  background: #071521;
+}
+
+.app-showcase-body {
+  padding: 22px;
+}
+
+.app-showcase-kicker {
+  margin: 0 0 8px;
+  color: var(--accent);
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.app-showcase-body h2 {
+  margin: 0 0 10px;
+  color: var(--primary);
+  font-size: clamp(1.6rem, 3.2vw, 2.35rem);
+}
+
+.app-showcase-body p {
+  max-width: 820px;
+  margin: 0 0 14px;
+  color: var(--muted);
+}
+
+.app-feature-strip {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 0;
+  margin: 18px 0 0;
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+}
+
+.app-feature {
+  min-height: 96px;
+  padding: 14px;
+  border-right: 1px solid var(--line);
+}
+
+.app-feature:last-child {
+  border-right: 0;
+}
+
+.app-feature strong {
+  display: block;
+  margin-bottom: 4px;
+  color: var(--primary);
+}
+
+.app-feature span {
+  display: block;
+  color: var(--muted);
+  font-size: 0.9rem;
+  line-height: 1.45;
+}
+
 .project-card {
   padding: 0;
   overflow: hidden;
@@ -252,6 +326,12 @@ h1 {
   object-fit: contain;
   padding: 34px;
   background: #ffffff;
+}
+
+.project-media.app-banner-thumb {
+  aspect-ratio: 1794 / 876;
+  object-fit: cover;
+  background: #071521;
 }
 
 .project-body {
@@ -510,8 +590,19 @@ code {
   .doc-layout,
   .split,
   .metric-row,
-  .feature-list {
+  .feature-list,
+  .app-feature-strip {
     grid-template-columns: 1fr;
+  }
+
+  .app-feature {
+    min-height: auto;
+    border-right: 0;
+    border-bottom: 1px solid var(--line);
+  }
+
+  .app-feature:last-child {
+    border-bottom: 0;
   }
 
   .toc {
@@ -553,6 +644,7 @@ code {
   .panel,
   .app-card,
   .doc-card,
+  .app-showcase-body,
   .service-card {
     padding: 16px;
   }
