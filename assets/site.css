@@ -109,22 +109,32 @@ a:hover {
   padding: 58px 0 48px;
 }
 
-.hero-brand-lockup {
-  display: flex;
-  align-items: center;
-  gap: 14px;
-  margin-bottom: 12px;
+.portfolio-hero .hero-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(220px, 330px);
+  align-items: end;
+  gap: 42px;
+}
+
+.hero-copy {
+  max-width: 760px;
 }
 
 .hero-logo {
-  width: 86px;
-  height: 86px;
+  display: block;
+  width: min(100%, 300px);
+  height: auto;
   object-fit: contain;
-  filter: drop-shadow(0 10px 24px rgba(0, 0, 0, 0.42));
+  opacity: 0.92;
+  filter: drop-shadow(0 18px 36px rgba(0, 0, 0, 0.36));
 }
 
-.hero-brand-lockup .eyebrow {
-  margin: 0;
+.hero-logo-panel {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  min-height: 300px;
+  pointer-events: none;
 }
 
 .portfolio-hero h1 {
@@ -696,14 +706,19 @@ code {
     padding: 46px 0 40px;
   }
 
-  .hero-brand-lockup {
-    gap: 10px;
-    margin-bottom: 10px;
+  .portfolio-hero .hero-layout {
+    grid-template-columns: 1fr;
+    gap: 18px;
+  }
+
+  .hero-logo-panel {
+    order: -1;
+    justify-content: flex-start;
+    min-height: auto;
   }
 
   .hero-logo {
-    width: 64px;
-    height: 64px;
+    width: 104px;
   }
 
   .site-header.app-title-header .wrap {
