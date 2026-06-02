@@ -47,7 +47,7 @@ a:hover {
 }
 
 .portfolio-hero {
-  min-height: min(760px, 86vh);
+  min-height: min(560px, 68vh);
   display: flex;
   align-items: end;
   color: #ffffff;
@@ -60,25 +60,26 @@ a:hover {
 .portfolio-hero .wrap {
   width: min(1120px, calc(100% - 32px));
   margin: 0 auto;
-  padding: 82px 0 70px;
+  padding: 58px 0 48px;
 }
 
 .portfolio-hero h1 {
-  max-width: 820px;
+  max-width: 760px;
+  font-size: clamp(2rem, 4.2vw, 3rem);
 }
 
 .portfolio-hero p {
-  max-width: 700px;
-  margin: 18px 0 0;
+  max-width: 660px;
+  margin: 14px 0 0;
   color: rgba(255, 255, 255, 0.86);
-  font-size: 1.08rem;
+  font-size: 1rem;
 }
 
 .hero-actions {
   display: flex;
   flex-wrap: wrap;
   gap: 12px;
-  margin-top: 28px;
+  margin-top: 22px;
 }
 
 .hero-actions .button.secondary {
@@ -533,18 +534,18 @@ code {
   }
 
   .portfolio-hero .wrap {
-    padding: 68px 0 56px;
+    padding: 46px 0 40px;
   }
 
   .portfolio-hero h1 {
-    max-width: 100%;
-    font-size: clamp(1.9rem, 8vw, 2.35rem);
+    max-width: 340px;
+    font-size: clamp(1.55rem, 6.2vw, 1.78rem);
     overflow-wrap: break-word;
   }
 
   .portfolio-hero p {
-    max-width: 100%;
-    font-size: 0.98rem;
+    max-width: 340px;
+    font-size: 0.92rem;
     overflow-wrap: break-word;
   }
 
