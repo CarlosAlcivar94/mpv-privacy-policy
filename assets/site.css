@@ -65,9 +65,8 @@ a:hover {
   display: block;
   width: 100%;
   max-width: 1120px;
-  height: clamp(220px, 24vw, 315px);
-  aspect-ratio: 3.55 / 1;
-  object-fit: cover;
+  height: auto;
+  object-fit: contain;
   object-position: center;
   border: 1px solid rgba(255, 255, 255, 0.18);
   border-radius: 6px;
@@ -686,7 +685,6 @@ code {
   .app-title-banner {
     width: 100%;
     height: auto;
-    aspect-ratio: 2.05 / 1;
     border-radius: 6px;
   }
 
