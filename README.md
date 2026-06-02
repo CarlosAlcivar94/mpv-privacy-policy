@@ -11,6 +11,7 @@ Sitio estatico publico para KA94 Studio. Funciona como portafolio profesional y 
 - `projects/acka94/`: ficha de ACKA94 Admin Center.
 - `projects/turnero/`: ficha de SATURNO Turnero.
 - `projects/gectexcel/`: ficha de GeCTExcel.
+- `projects/formularios-vba/`: ficha de automatizacion Excel/VBA para formularios institucionales.
 - `projects/bi/`: linea de dashboards y Business Intelligence.
 - `assets/site.css`: estilos compartidos.
 - `assets/branding/` y `assets/projects/`: logos e imagenes usadas por el portal.
