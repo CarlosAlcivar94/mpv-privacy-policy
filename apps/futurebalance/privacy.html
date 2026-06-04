@@ -15,7 +15,7 @@
     <div class="wrap">
       <p class="eyebrow">FutureBalance</p>
       <h1>Politica de Privacidad</h1>
-      <p>Ultima actualizacion: 30 de mayo de 2026.</p>
+      <p>Ultima actualizacion: 4 de junio de 2026.</p>
     </div>
   </header>
 
@@ -38,6 +38,8 @@
           del usuario. FutureBalance es una app de finanzas personales manuales para registrar
           ingresos, gastos, transferencias, tarjetas, pagos, deudas, presupuestos, reportes y
           proyeccion de saldo futuro. La app no se conecta a bancos y no solicita credenciales bancarias.
+          Algunas funciones opcionales de cuentas compartidas pueden usar Firestore y Cloud Functions
+          para crear espacios, aceptar invitaciones y leer datos compartidos entre miembros autorizados.
         </p>
         <p>
           Desarrollador y contacto de privacidad: <strong>ACKA94 / Carlos Alcivar</strong>,
@@ -66,6 +68,11 @@
               <td>Cloud Firestore con reglas por usuario.</td>
             </tr>
             <tr>
+              <td>Cuentas compartidas opcionales</td>
+              <td>Espacios compartidos, membresias, roles, carteras compartidas, movimientos compartidos por mes, invitaciones/codigos y estado de suscripcion Shared.</td>
+              <td>Datos ingresados por usuarios autorizados y operaciones procesadas mediante Firestore y Cloud Functions.</td>
+            </tr>
+            <tr>
               <td>Datos financieros manuales</td>
               <td>Carteras, tarjetas, categorias, movimientos, transferencias, compras con tarjeta, pagos, deudas, prestamos, cuotas, paquetes, presupuestos y proyecciones.</td>
               <td>Datos ingresados manualmente por el usuario; en Free/Pro se guardan localmente en SQLite/Drift.</td>
@@ -77,8 +84,8 @@
             </tr>
             <tr>
               <td>Compras y plan</td>
-              <td>Estado Free/Pro, producto, token de compra, verificacion backend y cambios administrados de plan.</td>
-              <td>Google Play Billing, Cloud Functions y Firestore.</td>
+              <td>Estado Free/Pro, productos Pro, suscripciones Shared cuando existan, token de compra enviado para verificacion, hashes de token guardados por backend, verificacion y cambios administrados de plan.</td>
+              <td>Google Play Billing, Cloud Functions, Android Publisher/RTDN y Firestore.</td>
             </tr>
             <tr>
               <td>Diagnostico y uso tecnico</td>
@@ -100,6 +107,8 @@
           <li>Calcular saldos, reportes, presupuestos, proyecciones y pagos exigibles sin conexion bancaria.</li>
           <li>Crear backups locales, compartir exportaciones CSV y guardar backups en Google Drive AppData cuando el usuario lo autoriza.</li>
           <li>Verificar compras Pro y aplicar beneficios sin autoconceder licencias desde el cliente.</li>
+          <li>Verificar suscripciones Shared y permitir crear, aceptar o leer espacios compartidos cuando el usuario use esa funcion.</li>
+          <li>Aplicar roles de cuentas compartidas para limitar lectura, escritura y administracion a miembros autorizados.</li>
           <li>Programar notificaciones locales de pagos, deudas, prestamos, paquetes, presupuestos, proyeccion y actualizaciones.</li>
           <li>Detectar fallos, mejorar estabilidad y proteger la app contra abuso.</li>
           <li>Resolver tickets de soporte y mostrar avisos operativos administrados.</li>
@@ -109,7 +118,8 @@
         <h3>Internet</h3>
         <p>
           La app usa Internet para Firebase Auth, perfil remoto basico, verificacion de plan,
-          Google Sign-In, Google Drive AppData, consultas de tipo de cambio y actualizaciones.
+          Google Sign-In, Google Drive AppData, consultas de tipo de cambio, actualizaciones,
+          soporte y funciones opcionales de cuentas compartidas.
         </p>
         <h3>Notificaciones</h3>
         <p>
@@ -126,10 +136,12 @@
         <h2 id="terceros">Servicios de terceros</h2>
         <ul>
           <li><strong>Firebase Authentication</strong>: inicio de sesion por Google o correo/contrasena.</li>
-          <li><strong>Cloud Firestore</strong>: perfil basico, plan/licencia, soporte y avisos administrados; no es fuente operativa principal de datos financieros Free/Pro.</li>
+          <li><strong>Cloud Firestore</strong>: perfil basico, plan/licencia, soporte, avisos administrados, membresias y datos de cuentas compartidas; no es fuente operativa principal de datos financieros personales Free/Pro.</li>
+          <li><strong>Cloud Functions</strong>: verificacion de compras, operaciones de soporte/admin, creacion o aceptacion de espacios compartidos y controles backend de suscripcion Shared.</li>
           <li><strong>Firebase Crashlytics y Analytics</strong>: estabilidad, diagnostico y eventos tecnicos. No deben capturar contenido financiero sensible.</li>
           <li><strong>Google Drive AppData</strong>: backups de datos operativos cuando el usuario guarda/restaura desde Drive o cuando Pro habilita backup automatico.</li>
-          <li><strong>Google Play Billing</strong>: compra Pro y restauracion/sincronizacion de compra.</li>
+          <li><strong>Google Play Billing</strong>: compra Pro, restauracion/sincronizacion de compra y suscripciones Shared cuando se ofrezcan.</li>
+          <li><strong>Google Play Developer API / RTDN</strong>: validacion backend de compras, suscripciones, renovaciones, cancelaciones, reembolsos y estados fuertes.</li>
           <li><strong>api.frankfurter.dev</strong>: tasas de cambio publicas sin API key; no requiere enviar movimientos financieros del usuario.</li>
         </ul>
         <p>
@@ -144,8 +156,9 @@
           FutureBalance usa autenticacion de Firebase, reglas Firestore por usuario, almacenamiento local
           privado mediante SQLite/Drift, transacciones locales para restauracion, validaciones antes de
           importar backups y cifrado de transporte cuando los datos viajan por red. Los datos financieros
-          Free/Pro son local-first; cualquier sincronizacion cloud operativa queda reservada para una fase
-          futura explicita.
+          personales Free/Pro son local-first. Las cuentas compartidas usan reglas por membresia, limites
+          de lectura por pantalla/mes y Cloud Functions para operaciones sensibles; no se deben abrir
+          escrituras amplias desde el cliente.
         </p>
 
         <h2 id="retencion">Retencion y eliminacion</h2>
@@ -154,7 +167,10 @@
           servicio, respaldar compras, prevenir fraude, resolver soporte o cumplir obligaciones legales.
           Los datos guardados solo en el dispositivo pueden eliminarse borrando datos de la app o
           desinstalandola. Los backups exportados o compartidos por el usuario deben eliminarse desde el
-          lugar donde fueron guardados.
+          lugar donde fueron guardados. Los datos de espacios compartidos pueden conservarse mientras el
+          espacio siga activo para otros miembros autorizados; al eliminar una cuenta se revisan membresias,
+          roles y datos asociados para eliminarlos, desvincularlos o anonimizarlos cuando corresponda sin
+          afectar indebidamente a otros usuarios del espacio.
         </p>
         <p>
           Para solicitar eliminacion de cuenta y datos asociados, usa la pagina:
@@ -175,8 +191,8 @@
 
         <div class="note">
           <strong>Nota para Play Console:</strong> esta politica debe mantenerse coherente con el
-          formulario Data safety, la declaracion de cuenta, permisos, compras y la pagina de eliminacion
-          configurada para FutureBalance.
+          formulario Data safety, la declaracion de cuenta, permisos, compras, suscripciones Shared,
+          datos compartidos y la pagina de eliminacion configurada para FutureBalance.
         </div>
       </article>
 
