@@ -15,7 +15,7 @@
     <div class="wrap">
       <p class="eyebrow">FutureBalance</p>
       <h1>Politica de Privacidad</h1>
-      <p>Ultima actualizacion: 4 de junio de 2026.</p>
+      <p>Ultima actualizacion: 6 de junio de 2026.</p>
     </div>
   </header>
 
@@ -39,6 +39,8 @@
           del usuario. FutureBalance es una app de finanzas personales manuales para registrar
           ingresos, gastos, transferencias, tarjetas, pagos, deudas, presupuestos, reportes y
           proyeccion de saldo futuro. La app no se conecta a bancos y no solicita credenciales bancarias.
+          La version actual incluye banners publicitarios pasivos para usuarios Free en zonas de lectura,
+          con consentimiento cuando sea requerido y sin anuncios de pantalla completa.
           Algunas funciones opcionales de cuentas compartidas pueden usar Firestore y Cloud Functions
           para crear espacios, aceptar invitaciones y leer datos compartidos entre miembros autorizados.
         </p>
@@ -89,6 +91,11 @@
               <td>Google Play Billing, Cloud Functions, Android Publisher/RTDN y Firestore.</td>
             </tr>
             <tr>
+              <td>Publicidad y consentimiento de anuncios</td>
+              <td>Elegibilidad Free/Pro para anuncios, estado de consentimiento UMP, datos tecnicos necesarios para cargar banners, impresiones, errores basicos e identificadores publicitarios o del dispositivo tratados por Google Mobile Ads cuando aplique. No enviamos movimientos, saldos, tarjetas ni presupuestos al SDK de anuncios.</td>
+              <td>Google Mobile Ads, User Messaging Platform y configuracion local de la app.</td>
+            </tr>
+            <tr>
               <td>Diagnostico y uso tecnico</td>
               <td>Eventos tecnicos, version, fallos, rendimiento y datos necesarios para estabilidad.</td>
               <td>Firebase Analytics, Crashlytics y servicios del sistema.</td>
@@ -110,6 +117,8 @@
           <li>Verificar compras Pro y aplicar beneficios sin autoconceder licencias desde el cliente.</li>
           <li>Verificar suscripciones Shared y permitir crear, aceptar o leer espacios compartidos cuando el usuario use esa funcion.</li>
           <li>Aplicar roles de cuentas compartidas para limitar lectura, escritura y administracion a miembros autorizados.</li>
+          <li>Mostrar banners publicitarios pasivos solo a usuarios Free, medir su carga/entrega y respetar el consentimiento de anuncios cuando sea requerido.</li>
+          <li>Evitar anuncios en Pro y en superficies sensibles como autenticacion, bloqueo de seguridad, formularios, compras, backups, soporte o pantallas de privacidad.</li>
           <li>Programar notificaciones locales de pagos, deudas, prestamos, paquetes, presupuestos, proyeccion y actualizaciones.</li>
           <li>Detectar fallos, mejorar estabilidad y proteger la app contra abuso.</li>
           <li>Resolver tickets de soporte y mostrar avisos operativos administrados.</li>
@@ -120,7 +129,16 @@
         <p>
           La app usa Internet para Firebase Auth, perfil remoto basico, verificacion de plan,
           Google Sign-In, Google Drive AppData, consultas de tipo de cambio, actualizaciones,
-          soporte y funciones opcionales de cuentas compartidas.
+          soporte, anuncios y funciones opcionales de cuentas compartidas.
+        </p>
+        <h3>Anuncios</h3>
+        <p>
+          FutureBalance puede mostrar banners publicitarios pasivos a usuarios Free en Inicio,
+          Movs/Historial y Analisis &gt; Reportes, siempre en zonas de lectura despues del contenido
+          principal. La app no usa anuncios interstitial, rewarded, app-open, native ni anuncios de
+          pantalla completa. Los usuarios Pro no deben cargar ni ver anuncios. Si el consentimiento
+          requerido no esta disponible, el anuncio falla o la ubicacion no es permitida, el espacio
+          del anuncio se oculta.
         </p>
         <h3>Notificaciones</h3>
         <p>
@@ -143,12 +161,14 @@
           <li><strong>Google Drive AppData</strong>: backups de datos operativos cuando el usuario guarda/restaura desde Drive o cuando Pro habilita backup automatico.</li>
           <li><strong>Google Play Billing</strong>: compra Pro, restauracion/sincronizacion de compra y suscripciones Shared cuando se ofrezcan.</li>
           <li><strong>Google Play Developer API / RTDN</strong>: validacion backend de compras, suscripciones, renovaciones, cancelaciones, reembolsos y estados fuertes.</li>
+          <li><strong>Google Mobile Ads / AdMob</strong>: banners publicitarios para usuarios Free en ubicaciones permitidas. Puede tratar identificadores publicitarios, datos tecnicos del dispositivo, senales de consentimiento, impresiones y errores de carga conforme a las politicas de Google; no recibe movimientos financieros, saldos, tarjetas ni presupuestos desde FutureBalance.</li>
+          <li><strong>Google User Messaging Platform</strong>: gestion de consentimiento y opciones de privacidad de anuncios cuando sea requerido por la ubicacion o regulacion aplicable.</li>
           <li><strong>api.frankfurter.dev</strong>: tasas de cambio publicas sin API key; no requiere enviar movimientos financieros del usuario.</li>
         </ul>
         <p>
-          La version actual de FutureBalance no declara Google Mobile Ads como SDK activo. Si se agregan
-          anuncios en una version futura, esta politica y el formulario Data safety se actualizaran antes
-          de publicar esa version.
+          Los anuncios de FutureBalance se limitan a banners pasivos de plan Free y no se insertan en
+          autenticacion, bloqueo de seguridad, formularios, compras Pro, backups, soporte, permisos,
+          privacidad ni confirmaciones sensibles.
         </p>
         <p>La app no vende datos personales ni datos financieros del usuario.</p>
 
@@ -193,7 +213,8 @@
         <div class="note">
           <strong>Nota para Play Console:</strong> esta politica debe mantenerse coherente con el
           formulario Data safety, la declaracion de cuenta, permisos, compras, suscripciones Shared,
-          datos compartidos y la pagina de eliminacion configurada para FutureBalance.
+          datos compartidos, anuncios/SDK de publicidad y la pagina de eliminacion configurada para
+          FutureBalance.
         </div>
       </article>
 
