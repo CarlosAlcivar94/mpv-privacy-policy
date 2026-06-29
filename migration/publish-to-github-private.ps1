@@ -3,7 +3,9 @@ param(
   [switch]$Execute,
   [switch]$IncludePublicSite,
   [switch]$AllowSensitiveFiles,
-  [switch]$MakeExistingReposPrivate
+  [switch]$AutoExcludeSensitiveFiles,
+  [switch]$MakeExistingReposPrivate,
+  [switch]$ContinueOnError
 )
 
 . "$PSScriptRoot\projects.ps1"
@@ -54,14 +56,21 @@ $ExcludedDirs = @(
 function Get-ProjectFiles {
   param([string]$Root)
 
-  $allFiles = Get-ChildItem -LiteralPath $Root -File -Recurse -Force -ErrorAction SilentlyContinue
-  foreach ($file in $allFiles) {
-    $relative = $file.FullName.Substring($Root.Length).TrimStart('\')
-    $parts = $relative -split '[\\/]'
-    if ($parts | Where-Object { $ExcludedDirs -contains $_ }) {
-      continue
+  $pending = [System.Collections.Generic.Stack[string]]::new()
+  $pending.Push($Root)
+
+  while ($pending.Count -gt 0) {
+    $current = $pending.Pop()
+    foreach ($item in Get-ChildItem -LiteralPath $current -Force -ErrorAction SilentlyContinue) {
+      if ($item.PSIsContainer) {
+        if ($ExcludedDirs -notcontains $item.Name) {
+          $pending.Push($item.FullName)
+        }
+        continue
+      }
+
+      $item
     }
-    $file
   }
 }
 
@@ -175,21 +184,79 @@ android/key.properties
   Set-Content -LiteralPath $gitignorePath -Value $content -Encoding UTF8
 }
 
-foreach ($project in $MigrationProjects) {
-  if ($project.PublicSite -and -not $IncludePublicSite) {
-    Write-Host "Skipping public site repo: $($project.Name)"
-    continue
+function Get-RelativeGitPath {
+  param(
+    [string]$Root,
+    [string]$FullName
+  )
+
+  return $FullName.Substring($Root.Length).TrimStart('\') -replace '\\', '/'
+}
+
+function Ensure-GitRepository {
+  param([string]$Path)
+
+  if (-not (Test-Path -LiteralPath (Join-Path $Path '.git'))) {
+    git -C $Path init -b main
   }
+
+  Ensure-GenericGitignore -Path $Path
+  git -C $Path branch -M main
+}
+
+function Add-InfoExclude {
+  param(
+    [string]$Path,
+    [string[]]$RelativePaths
+  )
+
+  $excludePath = Join-Path $Path '.git\info\exclude'
+  $existing = @()
+  if (Test-Path -LiteralPath $excludePath) {
+    $existing = Get-Content -LiteralPath $excludePath
+  }
+
+  $newEntries = foreach ($relativePath in $RelativePaths) {
+    "/$relativePath"
+  }
+
+  $toAdd = $newEntries | Where-Object { $existing -notcontains $_ }
+  if ($toAdd) {
+    Add-Content -LiteralPath $excludePath -Value $toAdd
+    Write-Host "Added $($toAdd.Count) sensitive path(s) to .git/info/exclude"
+  }
+}
+
+function Get-TrackedSensitiveFiles {
+  param(
+    [string]$Path,
+    [string[]]$RelativePaths
+  )
+
+  foreach ($relativePath in $RelativePaths) {
+    git -C $Path ls-files --error-unmatch $relativePath *> $null
+    if ($LASTEXITCODE -eq 0) {
+      $relativePath
+    }
+  }
+}
+
+function Publish-Project {
+  param([object]$Project)
 
   Write-Host ''
-  Write-Host "=== $($project.Name) -> $Owner/$($project.GitHubRepo) ===" -ForegroundColor Cyan
+  Write-Host "=== $($Project.Name) -> $Owner/$($Project.GitHubRepo) ===" -ForegroundColor Cyan
 
-  if (-not (Test-Path -LiteralPath $project.LocalPath)) {
-    Write-Warning "Missing folder: $($project.LocalPath)"
-    continue
+  if (-not (Test-Path -LiteralPath $Project.LocalPath)) {
+    Write-Warning "Missing folder: $($Project.LocalPath)"
+    return
   }
 
-  $projectFiles = Get-ProjectFiles -Root $project.LocalPath
+  if ($Execute -or $AutoExcludeSensitiveFiles) {
+    Ensure-GitRepository -Path $Project.LocalPath
+  }
+
+  $projectFiles = Get-ProjectFiles -Root $Project.LocalPath
   $sensitiveHits = foreach ($file in $projectFiles) {
     foreach ($pattern in $SensitivePatterns) {
       if ($file.Name -like $pattern) {
@@ -201,43 +268,65 @@ foreach ($project in $MigrationProjects) {
   $sensitiveHits = $sensitiveHits | Select-Object -Unique
 
   if ($sensitiveHits -and -not $AllowSensitiveFiles) {
-    Write-Warning 'Blocked by sensitive-file scan. Review these files or rerun with -AllowSensitiveFiles only after confirming .gitignore is correct:'
-    $sensitiveHits | Select-Object -First 40 | ForEach-Object { Write-Host "  $_" }
-    continue
+    $relativeSensitiveHits = $sensitiveHits | ForEach-Object { Get-RelativeGitPath -Root $Project.LocalPath -FullName $_ }
+
+    if ($AutoExcludeSensitiveFiles) {
+      Add-InfoExclude -Path $Project.LocalPath -RelativePaths $relativeSensitiveHits
+      $trackedSensitive = @(Get-TrackedSensitiveFiles -Path $Project.LocalPath -RelativePaths $relativeSensitiveHits)
+      if ($trackedSensitive) {
+        Write-Warning 'Blocked: these sensitive files are already tracked by Git and must be removed from history/index manually before migration:'
+        $trackedSensitive | Select-Object -First 40 | ForEach-Object { Write-Host "  $_" }
+        return
+      }
+      Write-Host 'Sensitive files are excluded locally and are not tracked. Continuing.'
+    } else {
+      Write-Warning 'Blocked by sensitive-file scan. Rerun with -AutoExcludeSensitiveFiles to ignore untracked secrets, or clean them manually:'
+      $sensitiveHits | Select-Object -First 40 | ForEach-Object { Write-Host "  $_" }
+      return
+    }
   }
 
   if (-not $Execute) {
     Write-Host 'Dry run only. Add -Execute to create repos, commit and push.'
-    Write-Host "Would create private repo: $Owner/$($project.GitHubRepo)"
-    Write-Host "Would push from: $($project.LocalPath)"
-    continue
+    Write-Host "Would create private repo: $Owner/$($Project.GitHubRepo)"
+    Write-Host "Would push from: $($Project.LocalPath)"
+    return
   }
 
-  Ensure-PrivateRepo -Owner $Owner -Repo $project.GitHubRepo
+  Ensure-PrivateRepo -Owner $Owner -Repo $Project.GitHubRepo
 
-  if (-not (Test-Path -LiteralPath (Join-Path $project.LocalPath '.git'))) {
-    git -C $project.LocalPath init -b main
-    Ensure-GenericGitignore -Path $project.LocalPath
-  }
-
-  Ensure-GenericGitignore -Path $project.LocalPath
-
-  git -C $project.LocalPath branch -M main
-  git -C $project.LocalPath add -A
-  git -C $project.LocalPath diff --cached --quiet
+  Ensure-GitRepository -Path $Project.LocalPath
+  git -C $Project.LocalPath add -A
+  git -C $Project.LocalPath diff --cached --quiet
   if ($LASTEXITCODE -ne 0) {
-    git -C $project.LocalPath commit -m 'Sync project for private GitHub backup'
+    git -C $Project.LocalPath commit -m 'Sync project for private GitHub backup'
   } else {
     Write-Host 'No staged changes to commit.'
   }
 
-  $remoteUrl = "https://github.com/$Owner/$($project.GitHubRepo).git"
-  $existingRemote = git -C $project.LocalPath remote
+  $remoteUrl = "https://github.com/$Owner/$($Project.GitHubRepo).git"
+  $existingRemote = git -C $Project.LocalPath remote
   if ($existingRemote -contains 'github-private') {
-    git -C $project.LocalPath remote set-url github-private $remoteUrl
+    git -C $Project.LocalPath remote set-url github-private $remoteUrl
   } else {
-    git -C $project.LocalPath remote add github-private $remoteUrl
+    git -C $Project.LocalPath remote add github-private $remoteUrl
   }
 
-  git -C $project.LocalPath push -u github-private main
+  git -C $Project.LocalPath push -u github-private main
+}
+
+foreach ($project in $MigrationProjects) {
+  if ($project.PublicSite -and -not $IncludePublicSite) {
+    Write-Host "Skipping public site repo: $($project.Name)"
+    continue
+  }
+
+  try {
+    Publish-Project -Project $project
+  } catch {
+    Write-Error "Failed publishing $($project.Name): $($_.Exception.Message)"
+    if (-not $ContinueOnError) {
+      throw
+    }
+  }
 }

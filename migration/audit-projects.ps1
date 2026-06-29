@@ -48,14 +48,21 @@ $LargeOrGeneratedDirs = @(
 function Get-ProjectFiles {
   param([string]$Root)
 
-  $allFiles = Get-ChildItem -LiteralPath $Root -File -Recurse -Force -ErrorAction SilentlyContinue
-  foreach ($file in $allFiles) {
-    $relative = $file.FullName.Substring($Root.Length).TrimStart('\')
-    $parts = $relative -split '[\\/]'
-    if ($parts | Where-Object { $LargeOrGeneratedDirs -contains $_ }) {
-      continue
+  $pending = [System.Collections.Generic.Stack[string]]::new()
+  $pending.Push($Root)
+
+  while ($pending.Count -gt 0) {
+    $current = $pending.Pop()
+    foreach ($item in Get-ChildItem -LiteralPath $current -Force -ErrorAction SilentlyContinue) {
+      if ($item.PSIsContainer) {
+        if ($LargeOrGeneratedDirs -notcontains $item.Name) {
+          $pending.Push($item.FullName)
+        }
+        continue
+      }
+
+      $item
     }
-    $file
   }
 }
 
