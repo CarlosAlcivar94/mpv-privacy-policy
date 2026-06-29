@@ -1,0 +1,9 @@
+# Local migration secrets. Do not commit these.
+*.bundle.json
+*.secrets.json
+*.secret.json
+*.token
+*.tokens
+.env
+*.env
+
