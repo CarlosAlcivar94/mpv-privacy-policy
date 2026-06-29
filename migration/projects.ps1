@@ -20,7 +20,7 @@ $MigrationProjects = @(
   [pscustomobject]@{
     Name = 'SATURNO Turnero'
     LocalPath = 'C:\turnero'
-    GitHubRepo = 'saturno-turnero'
+    GitHubRepo = 'SATurno'
     CloneFolder = 'saturno-turnero'
     InstallProfile = 'turnero-node'
     Notes = 'Sistema de turnos. Actualmente no es repo Git.'
@@ -29,7 +29,7 @@ $MigrationProjects = @(
   [pscustomobject]@{
     Name = 'GeCTExcel'
     LocalPath = 'C:\GeCTExcel'
-    GitHubRepo = 'gectexcel'
+    GitHubRepo = 'GeCTExcel'
     CloneFolder = 'gectexcel'
     InstallProfile = 'python'
     Notes = 'Servicio interno para Excel/API. Remoto actual apunta a servidor local.'
@@ -38,7 +38,7 @@ $MigrationProjects = @(
   [pscustomobject]@{
     Name = 'ACKA94 Admin Center'
     LocalPath = 'C:\AdminCenterKA94'
-    GitHubRepo = 'acka94-admin-center'
+    GitHubRepo = 'AdminCenterKA94'
     CloneFolder = 'acka94-admin-center'
     InstallProfile = 'flutter-node-firebase'
     Notes = 'Panel privado multiapp. Actualmente no es repo Git.'
@@ -47,7 +47,7 @@ $MigrationProjects = @(
   [pscustomobject]@{
     Name = 'GLOBALVIEW'
     LocalPath = 'C:\globalview'
-    GitHubRepo = 'globalview'
+    GitHubRepo = 'GlobalView'
     CloneFolder = 'globalview'
     InstallProfile = 'php-node'
     Notes = 'Portal Power BI. Remoto actual apunta a servidor local.'
@@ -56,7 +56,7 @@ $MigrationProjects = @(
   [pscustomobject]@{
     Name = 'CEVIFLASH'
     LocalPath = 'C:\Users\Administrador1\Documents\New project 2'
-    GitHubRepo = 'ceviflash'
+    GitHubRepo = 'CeviFlash'
     CloneFolder = 'ceviflash'
     InstallProfile = 'node-firebase'
     Notes = 'PWA Angular/Firebase. Repo Git sin commits.'

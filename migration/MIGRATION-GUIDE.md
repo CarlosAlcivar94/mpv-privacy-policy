@@ -6,11 +6,11 @@ Objetivo: llevar los proyectos de esta PC a repositorios privados de GitHub y cl
 
 - `C:\mpv` -> `CarlosAlcivar94/MVP`
 - `C:\FutureBalance` -> `CarlosAlcivar94/FutureBalance`
-- `C:\turnero` -> `CarlosAlcivar94/saturno-turnero`
-- `C:\GeCTExcel` -> `CarlosAlcivar94/gectexcel`
-- `C:\AdminCenterKA94` -> `CarlosAlcivar94/acka94-admin-center`
-- `C:\globalview` -> `CarlosAlcivar94/globalview`
-- `C:\Users\Administrador1\Documents\New project 2` -> `CarlosAlcivar94/ceviflash`
+- `C:\turnero` -> `CarlosAlcivar94/SATurno`
+- `C:\GeCTExcel` -> `CarlosAlcivar94/GeCTExcel`
+- `C:\AdminCenterKA94` -> `CarlosAlcivar94/AdminCenterKA94`
+- `C:\globalview` -> `CarlosAlcivar94/GlobalView`
+- `C:\Users\Administrador1\Documents\New project 2` -> `CarlosAlcivar94/CeviFlash`
 - `C:\FORMULARIOS` -> `CarlosAlcivar94/formularios-vba`
 - `C:\mpv-privacy-policy` -> `CarlosAlcivar94/mpv-privacy-policy`
 
@@ -198,5 +198,5 @@ git push -u github-private main
 Para clonar en la otra PC:
 
 ```powershell
-git clone https://github.com/CarlosAlcivar94/saturno-turnero.git C:\Dev\saturno-turnero
+git clone https://github.com/CarlosAlcivar94/SATurno.git C:\Dev\saturno-turnero
 ```
