@@ -78,6 +78,21 @@ No uses `-MakeExistingReposPrivate` con el repo del sitio publico si necesitas q
 
 En la nueva PC necesitas una sesion de PowerShell como usuario normal. Para instalar herramientas con `winget`, puede pedir permisos de administrador segun el paquete.
 
+Si al ejecutar el setup aparece `winget is not available`, primero intenta registrar App Installer:
+
+```powershell
+Add-AppxPackage -RegisterByFamilyName -MainPackage Microsoft.DesktopAppInstaller_8wekyb3d8bbwe
+winget --version
+```
+
+Si sigue sin aparecer, instala o actualiza **App Installer** desde Microsoft Store, cierra PowerShell y abre una nueva terminal.
+
+Si Microsoft Store no funciona, ejecuta PowerShell como administrador:
+
+```powershell
+powershell -ExecutionPolicy Bypass -File C:\Dev\mpv-privacy-policy\migration\repair-winget.ps1
+```
+
 1. Instala Git manualmente si todavia no puedes clonar este repo. Despues clona el repo del sitio para obtener los scripts:
 
 ```powershell

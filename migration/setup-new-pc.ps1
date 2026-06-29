@@ -19,15 +19,47 @@ function Test-Command {
   return [bool](Get-Command $Name -ErrorAction SilentlyContinue)
 }
 
+function Assert-WingetAvailable {
+  if (Test-Command winget) {
+    return
+  }
+
+  Write-Warning 'winget is not available in this terminal. Trying to register App Installer for this user...'
+  try {
+    Add-AppxPackage -RegisterByFamilyName -MainPackage Microsoft.DesktopAppInstaller_8wekyb3d8bbwe -ErrorAction Stop
+  } catch {
+    Write-Warning "Could not register App Installer automatically: $($_.Exception.Message)"
+  }
+
+  if (Test-Command winget) {
+    Write-Host 'winget is now available after App Installer registration.'
+    return
+  }
+
+  $message = @'
+winget is not available.
+
+Fix it with one of these options, then close and reopen PowerShell:
+
+1. Open Microsoft Store, search "App Installer", then install or update it.
+2. If Microsoft Store is not usable, run this from an elevated PowerShell:
+   powershell -ExecutionPolicy Bypass -File C:\Dev\mpv-privacy-policy\migration\repair-winget.ps1
+3. If you install all tools manually, rerun setup with -SkipToolInstall.
+
+Manual tools expected by this project set:
+Git, GitHub CLI, Node.js LTS, Python 3.12, JDK 17, PHP 8.3, Composer, Android Studio, VS Code, Flutter.
+'@
+
+  throw $message
+}
+
 function Install-WingetPackage {
   param(
     [string]$Id,
     [string]$Name
   )
 
-  if (-not (Test-Command winget)) {
-    throw 'winget is not available. Install App Installer from Microsoft Store or install required tools manually.'
-  }
+  Assert-WingetAvailable
 
   Write-Host "Installing/checking $Name ($Id)"
   winget install --id $Id --exact --silent --accept-package-agreements --accept-source-agreements
