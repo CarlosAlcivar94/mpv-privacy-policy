@@ -234,8 +234,8 @@ function Get-TrackedSensitiveFiles {
   )
 
   foreach ($relativePath in $RelativePaths) {
-    git -C $Path ls-files --error-unmatch $relativePath *> $null
-    if ($LASTEXITCODE -eq 0) {
+    $trackedMatch = git -C $Path ls-files -- $relativePath
+    if ($trackedMatch) {
       $relativePath
     }
   }
@@ -324,7 +324,7 @@ foreach ($project in $MigrationProjects) {
   try {
     Publish-Project -Project $project
   } catch {
-    Write-Error "Failed publishing $($project.Name): $($_.Exception.Message)"
+    Write-Warning "Failed publishing $($project.Name): $($_.Exception.Message)"
     if (-not $ContinueOnError) {
       throw
     }
