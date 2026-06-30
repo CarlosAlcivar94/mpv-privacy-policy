@@ -17,8 +17,8 @@ foreach ($project in $MigrationProjects) {
     continue
   }
 
-  $safeName = $project.GitHubRepo
-  $targetPath = Join-Path $Destination $safeName
+  $folderName = if ($project.CloneFolder) { $project.CloneFolder } else { $project.GitHubRepo }
+  $targetPath = Join-Path $Destination $folderName
   $repoUrl = "https://github.com/$Owner/$($project.GitHubRepo).git"
 
   if (Test-Path -LiteralPath $targetPath) {

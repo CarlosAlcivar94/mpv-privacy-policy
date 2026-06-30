@@ -6,12 +6,11 @@ Objetivo: llevar los proyectos de esta PC a repositorios privados de GitHub y cl
 
 - `C:\mpv` -> `CarlosAlcivar94/MVP`
 - `C:\FutureBalance` -> `CarlosAlcivar94/FutureBalance`
-- `C:\turnero` -> `CarlosAlcivar94/SATurno`
+- `C:\turnero` -> `CarlosAlcivar94/SATurno` -> `C:\Dev\SATurno`
 - `C:\GeCTExcel` -> `CarlosAlcivar94/GeCTExcel`
-- `C:\AdminCenterKA94` -> `CarlosAlcivar94/AdminCenterKA94`
-- `C:\globalview` -> `CarlosAlcivar94/GlobalView`
-- `C:\Users\Administrador1\Documents\New project 2` -> `CarlosAlcivar94/CeviFlash`
-- `C:\FORMULARIOS` -> `CarlosAlcivar94/formularios-vba`
+- `C:\AdminCenterKA94` -> `CarlosAlcivar94/AdminCenterKA94` -> `C:\Dev\AdminCenterKA94`
+- `C:\globalview` -> `CarlosAlcivar94/GlobalView` -> `C:\Dev\globalview`
+- `C:\Users\Administrador1\Documents\New project 2` -> `CarlosAlcivar94/CeviFlash` -> `C:\Dev\ceviflash`
 - `C:\mpv-privacy-policy` -> `CarlosAlcivar94/mpv-privacy-policy`
 
 Nota: `mpv-privacy-policy` publica `ka94studio.com`. No lo conviertas a privado si tu GitHub Pages depende de repo publico.
@@ -126,6 +125,8 @@ Luego clona los repos privados y ejecuta dependencias:
 - Python: crea `.venv` e instala `requirements.txt`
 - PHP: `composer install`
 
+El flujo por defecto se apega a las carpetas reales usadas en `C:\Dev`: `MVP`, `FutureBalance`, `SATurno`, `gectexcel`, `AdminCenterKA94`, `globalview`, `ceviflash` y `mpv-privacy-policy`. `C:\FORMULARIOS` queda fuera del setup automatico hasta que tenga repositorio definitivo.
+
 3. Para clonar repos privados sin prompts, usa un token temporal:
 
 ```powershell
@@ -206,12 +207,12 @@ cd C:\turnero
 git init -b main
 git add -A
 git commit -m "Initial private backup"
-git remote add github-private https://github.com/CarlosAlcivar94/saturno-turnero.git
+git remote add github-private https://github.com/CarlosAlcivar94/SATurno.git
 git push -u github-private main
 ```
 
 Para clonar en la otra PC:
 
 ```powershell
-git clone https://github.com/CarlosAlcivar94/SATurno.git C:\Dev\saturno-turnero
+git clone https://github.com/CarlosAlcivar94/SATurno.git C:\Dev\SATurno
 ```

@@ -19,6 +19,31 @@ function Test-Command {
   return [bool](Get-Command $Name -ErrorAction SilentlyContinue)
 }
 
+function Get-PythonRunner {
+  $candidates = @(
+    [pscustomobject]@{ Command = 'py'; Args = @('-3') },
+    [pscustomobject]@{ Command = 'python'; Args = @() },
+    [pscustomobject]@{ Command = 'python3'; Args = @() }
+  )
+
+  foreach ($candidate in $candidates) {
+    if (-not (Test-Command $candidate.Command)) {
+      continue
+    }
+
+    try {
+      $version = & $candidate.Command @($candidate.Args) --version 2>&1
+      if ($LASTEXITCODE -eq 0 -and ($version -join ' ') -match 'Python 3') {
+        return $candidate
+      }
+    } catch {
+      continue
+    }
+  }
+
+  return $null
+}
+
 function Assert-WingetAvailable {
   if (Test-Command winget) {
     return
@@ -194,6 +219,11 @@ function Install-NodeDeps {
     return
   }
 
+  if (-not (Test-Command npm)) {
+    Write-Warning "npm is not available. Skipping Node dependencies for $Path"
+    return
+  }
+
   Invoke-InProject -Path $Path -Script {
     if (Test-Path -LiteralPath 'package-lock.json') {
       npm ci --no-audit --no-fund
@@ -219,16 +249,36 @@ function Install-PythonDeps {
     return
   }
 
-  Invoke-InProject -Path $Path -Script {
-    python -m venv .venv
-    .\.venv\Scripts\python.exe -m pip install --upgrade pip
-    .\.venv\Scripts\python.exe -m pip install -r requirements.txt
+  $python = Get-PythonRunner
+  if (-not $python) {
+    Write-Warning "Python 3 is not available. Skipping Python dependencies for $Path"
+    return
+  }
+
+  Push-Location $Path
+  try {
+    & $python.Command @($python.Args) -m venv .venv
+    $venvPython = Join-Path $Path '.venv\Scripts\python.exe'
+    if (-not (Test-Path -LiteralPath $venvPython)) {
+      Write-Warning "Python virtual environment was not created correctly at $Path\.venv"
+      return
+    }
+
+    & $venvPython -m pip install --upgrade pip
+    & $venvPython -m pip install -r requirements.txt
+  } finally {
+    Pop-Location
   }
 }
 
 function Install-PhpDeps {
   param([string]$Path)
   if (-not (Test-Path -LiteralPath (Join-Path $Path 'composer.json'))) {
+    return
+  }
+
+  if (-not (Test-Command composer)) {
+    Write-Warning "Composer is not available. Skipping PHP dependencies for $Path"
     return
   }
 
@@ -257,6 +307,11 @@ function Install-ProjectDeps {
       Install-NodeDeps -Path $Path
     }
     'turnero-node' {
+      if (-not (Test-Command npm)) {
+        Write-Warning "npm is not available. Skipping Turnero dependencies for $Path"
+        return
+      }
+
       Invoke-InProject -Path $Path -Script {
         npm run install:frontend
         npm run install:backend
@@ -319,7 +374,11 @@ if (-not $SkipDependencies) {
   foreach ($project in $selectedProjects) {
     $path = $projectPaths[$project.Name]
     if (Test-Path -LiteralPath $path) {
-      Install-ProjectDeps -Project $project -Path $path
+      try {
+        Install-ProjectDeps -Project $project -Path $path
+      } catch {
+        Write-Warning "Dependency installation failed for $($project.Name): $($_.Exception.Message)"
+      }
     } else {
       Write-Warning "Cannot install dependencies. Missing clone path: $path"
     }

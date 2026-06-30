@@ -21,7 +21,7 @@ $MigrationProjects = @(
     Name = 'SATURNO Turnero'
     LocalPath = 'C:\turnero'
     GitHubRepo = 'SATurno'
-    CloneFolder = 'saturno-turnero'
+    CloneFolder = 'SATurno'
     InstallProfile = 'turnero-node'
     Notes = 'Sistema de turnos. Actualmente no es repo Git.'
     PublicSite = $false
@@ -39,7 +39,7 @@ $MigrationProjects = @(
     Name = 'ACKA94 Admin Center'
     LocalPath = 'C:\AdminCenterKA94'
     GitHubRepo = 'AdminCenterKA94'
-    CloneFolder = 'acka94-admin-center'
+    CloneFolder = 'AdminCenterKA94'
     InstallProfile = 'flutter-node-firebase'
     Notes = 'Panel privado multiapp. Actualmente no es repo Git.'
     PublicSite = $false
@@ -60,15 +60,6 @@ $MigrationProjects = @(
     CloneFolder = 'ceviflash'
     InstallProfile = 'node-firebase'
     Notes = 'PWA Angular/Firebase. Repo Git sin commits.'
-    PublicSite = $false
-  },
-  [pscustomobject]@{
-    Name = 'Formularios Excel VBA'
-    LocalPath = 'C:\FORMULARIOS'
-    GitHubRepo = 'formularios-vba'
-    CloneFolder = 'formularios-vba'
-    InstallProfile = 'excel-vba'
-    Notes = 'Automatizaciones Excel/VBA. Revisar archivos .xlsm y datos reales antes de subir.'
     PublicSite = $false
   },
   [pscustomobject]@{
