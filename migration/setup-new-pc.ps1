@@ -233,6 +233,14 @@ function Install-NodeDeps {
   }
 }
 
+function Install-FirebaseFunctionsDeps {
+  param([string]$Path)
+  $functionsPath = Join-Path $Path 'functions'
+  if (Test-Path -LiteralPath (Join-Path $functionsPath 'package.json')) {
+    Install-NodeDeps -Path $functionsPath
+  }
+}
+
 function Install-FlutterDeps {
   param([string]$Path)
   $flutterBat = Join-Path $FlutterSdkPath 'bin\flutter.bat'
@@ -301,10 +309,12 @@ function Install-ProjectDeps {
       if (Test-Path -LiteralPath (Join-Path $Path 'package.json')) {
         Install-NodeDeps -Path $Path
       }
+      Install-FirebaseFunctionsDeps -Path $Path
     }
     'flutter-node-firebase' {
       Install-FlutterDeps -Path $Path
       Install-NodeDeps -Path $Path
+      Install-FirebaseFunctionsDeps -Path $Path
     }
     'turnero-node' {
       if (-not (Test-Command npm)) {

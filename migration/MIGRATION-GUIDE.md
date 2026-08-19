@@ -2,6 +2,14 @@
 
 Objetivo: llevar los proyectos de esta PC a repositorios privados de GitHub y clonarlos en otra PC para seguir programando.
 
+Para migracion hacia Ubuntu despues de resetear la PC, usa tambien:
+
+- `migration/PRE-RESET-AUDIT-2026-08-19.md`
+- `migration/pre-reset-audit.ps1`
+- `migration/UBUNTU-RESET-GUIDE.md`
+- `migration/setup-ubuntu-dev.sh`
+- `migration/import-local-secrets.py`
+
 ## Repos detectados
 
 - `C:\mpv` -> `CarlosAlcivar94/MVP`
