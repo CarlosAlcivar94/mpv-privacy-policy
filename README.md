@@ -4,6 +4,9 @@ Sitio estatico publico para KA94 Studio. Funciona como portafolio profesional y 
 
 ## Estructura
 
+- `CODEX.md`: memoria operativa para que Codex entienda el rol de este repo.
+- `PLAN.md`: plan de continuidad antes y despues del reset a Ubuntu.
+- `DEPENDENCIAS.md`: dependencias del portal y del entorno completo KA94.
 - `index.html`: portafolio principal de KA94 Studio.
 - `app/index.html`: indice ligero de documentacion pensado para abrir desde las apps.
 - `apps/mpv/`: documentacion de My Vehicle Planner.
@@ -17,6 +20,22 @@ Sitio estatico publico para KA94 Studio. Funciona como portafolio profesional y 
 - `projects/bi/`: linea de dashboards y Business Intelligence.
 - `assets/site.css`: estilos compartidos.
 - `assets/branding/` y `assets/projects/`: logos e imagenes usadas por el portal.
+- `migration/`: scripts y manuales de migracion/restauracion.
+
+## Restauracion despues de resetear
+
+La guia principal para pasar a Ubuntu es:
+
+- `migration/UBUNTU-RESET-GUIDE.md`
+
+Antes de formatear, ejecutar:
+
+```powershell
+cd C:\mpv-privacy-policy
+powershell -ExecutionPolicy Bypass -File .\migration\pre-reset-audit.ps1 -Online
+```
+
+No resetear hasta que los proyectos esten limpios y el HEAD local exista en el remoto que se usara para restaurar.
 
 ## URLs para Google Play Console
 
