@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>KAsist - Asistente personal privado</title>
+  <meta name="description" content="KAsist es un asistente personal privado que se usa por Telegram y se conecta con Google Calendar y Gmail en modo lectura." />
+  <link rel="stylesheet" href="../../assets/site.css" />
+  <link rel="icon" type="image/png" sizes="32x32" href="../../assets/branding/ka94-favicon-32.png?v=20260602-visible-logo" />
+  <link rel="icon" type="image/png" sizes="512x512" href="../../assets/branding/ka94-icon.png?v=20260602-visible-logo" />
+  <link rel="apple-touch-icon" sizes="180x180" href="../../assets/branding/ka94-apple-touch.png?v=20260602-visible-logo" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="wrap">
+      <p class="eyebrow">KAsist</p>
+      <h1>Asistente personal privado</h1>
+      <p>Agenda, correo, documentos y recordatorios desde una conversacion en Telegram.</p>
+    </div>
+  </header>
+
+  <nav class="site-nav" aria-label="Navegacion principal">
+    <div class="wrap">
+      <a href="../../index.html">Inicio</a>
+      <a href="index.html" aria-current="page">KAsist</a>
+      <a href="privacy.html">Politica</a>
+      <a href="terms.html">Condiciones</a>
+    </div>
+  </nav>
+
+  <main class="page">
+    <div class="wrap doc-layout">
+      <article class="document">
+        <h2 id="que-es">Que es KAsist</h2>
+        <p>
+          <strong>KAsist</strong> es un asistente personal privado desarrollado por
+          <strong>ACKA94 / Carlos Alcivar</strong>. El usuario conversa con el asistente
+          por Telegram, en lenguaje natural o por nota de voz, y el asistente organiza su
+          agenda, recordatorios, tareas, documentos y correo.
+        </p>
+        <p>
+          KAsist se ejecuta en un servidor propio del usuario, no en una plataforma
+          compartida. Cada instalacion atiende unicamente a las cuentas de Telegram que su
+          propietario autoriza de forma explicita.
+        </p>
+
+        <h2 id="funciones">Que hace</h2>
+        <ul>
+          <li>Consultar la agenda del dia, de la semana y los proximos eventos.</li>
+          <li>Crear, reprogramar y cancelar eventos de Google Calendar, siempre con confirmacion previa del usuario.</li>
+          <li>Avisar con anticipacion de eventos, vencimientos y tareas pendientes.</li>
+          <li>Buscar, leer y resumir correos de Gmail en modo solo lectura, y guardar adjuntos cuando el usuario lo pide.</li>
+          <li>Guardar, buscar y resumir documentos personales del usuario.</li>
+          <li>Transcribir notas de voz y ejecutar la instruccion resultante.</li>
+          <li>Llevar recordatorios, notas, tareas y registros de gastos e ingresos del hogar.</li>
+        </ul>
+
+        <h2 id="google">Uso de servicios de Google</h2>
+        <p>
+          KAsist se conecta con dos servicios de Google, siempre previa autorizacion
+          explicita del usuario mediante la pantalla de consentimiento de Google:
+        </p>
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th>Servicio</th>
+              <th>Alcance solicitado</th>
+              <th>Para que se usa</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Google Calendar</td>
+              <td><code>https://www.googleapis.com/auth/calendar</code></td>
+              <td>Leer los eventos del usuario para responder consultas de agenda y enviar avisos, y crear, modificar o cancelar eventos cuando el usuario lo solicita y confirma.</td>
+            </tr>
+            <tr>
+              <td>Gmail</td>
+              <td><code>https://www.googleapis.com/auth/gmail.readonly</code></td>
+              <td>Buscar, leer y resumir correos, y descargar adjuntos a peticion del usuario. KAsist no envia, borra, archiva ni modifica correos.</td>
+            </tr>
+          </tbody>
+        </table>
+        <p>
+          El usuario puede revocar el acceso en cualquier momento desde
+          <a href="https://myaccount.google.com/permissions" target="_blank" rel="noopener noreferrer">la pagina de permisos de su Cuenta de Google</a>.
+        </p>
+
+        <h2 id="privacidad">Privacidad</h2>
+        <p>
+          Los datos del usuario se guardan en el servidor propio de esa instalacion. KAsist
+          no vende datos, no muestra publicidad y no utiliza los datos de Google para
+          entrenar modelos de inteligencia artificial. El detalle completo esta en la
+          <a href="privacy.html">Politica de Privacidad</a>.
+        </p>
+
+        <h2 id="contacto">Contacto</h2>
+        <p>
+          Desarrollador: <strong>ACKA94 / Carlos Alcivar</strong>. Soporte y consultas de
+          privacidad: <a href="mailto:support@ka94studio.com">support@ka94studio.com</a>.
+        </p>
+      </article>
+
+      <aside class="toc" aria-label="Contenido">
+        <h2>Contenido</h2>
+        <a href="#que-es">Que es</a>
+        <a href="#funciones">Funciones</a>
+        <a href="#google">Servicios de Google</a>
+        <a href="#privacidad">Privacidad</a>
+        <a href="#contacto">Contacto</a>
+      </aside>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <p>&copy; 2026 ACKA94. Contacto: <a href="mailto:support@ka94studio.com">support@ka94studio.com</a>.</p>
+    </div>
+  </footer>
+</body>
+</html>
