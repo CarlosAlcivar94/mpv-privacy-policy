@@ -442,6 +442,12 @@ h1 {
   background: #ffffff;
 }
 
+.project-media.assistant-logo-media {
+  object-fit: contain;
+  padding: 18px;
+  background: #050817;
+}
+
 .project-media.app-banner-thumb {
   aspect-ratio: 1794 / 876;
   object-fit: cover;
