@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Alín - Tu IA local</title>
-  <meta name="description" content="Alín es un asistente personal privado que se usa por Telegram, funciona en tu propio servidor y se conecta con Google Calendar y Gmail." />
+  <meta name="description" content="Alín es un asistente personal privado que se usa por Telegram, funciona en tu propio servidor y se conecta con Google Calendar." />
   <link rel="stylesheet" href="../../assets/site.css?v=20260901-alin-local" />
   <link rel="icon" type="image/jpeg" href="../../assets/branding/alin-logo.jpg?v=20260901-alin-local" />
   <link rel="apple-touch-icon" href="../../assets/branding/alin-logo.jpg?v=20260901-alin-local" />
@@ -14,7 +14,7 @@
     <div class="wrap">
       <p class="eyebrow">Alín</p>
       <h1>Tu IA local</h1>
-      <p>Asistente personal privado: agenda, correo, documentos y recordatorios desde Telegram.</p>
+      <p>Asistente personal privado: agenda, recordatorios, tareas y documentos desde Telegram.</p>
     </div>
   </header>
 
@@ -31,7 +31,7 @@
     <div class="wrap doc-layout">
       <article class="document">
         <p>
-          <img src="../../assets/branding/alin-logo.jpg" alt="Logotipo de Alín" width="160" height="160" />
+          <img src="../../assets/branding/alin-logo.jpg?v=20260901-alin-local" alt="Logotipo de Alín" width="160" height="160" />
         </p>
 
         <h2 id="que-es">Que es Alín</h2>
@@ -39,7 +39,7 @@
           <strong>Alín</strong> es un asistente personal privado desarrollado por
           <strong>ACKA94 / Carlos Alcivar</strong>. El usuario conversa con Alín por Telegram,
           en lenguaje natural o por nota de voz, y el asistente organiza su agenda,
-          recordatorios, tareas, documentos y correo.
+          recordatorios, tareas y documentos.
         </p>
         <p>
           Alín se ejecuta en un servidor propio del usuario, no en una plataforma compartida.
@@ -53,7 +53,6 @@
           <li>Consultar la agenda del dia, de la semana y los proximos eventos.</li>
           <li>Crear, reprogramar y cancelar eventos de Google Calendar, siempre con confirmacion previa del usuario.</li>
           <li>Avisar con anticipacion de eventos, vencimientos y tareas pendientes.</li>
-          <li>Buscar, leer y resumir correos de Gmail en modo solo lectura, y guardar adjuntos cuando el usuario lo pide.</li>
           <li>Guardar, buscar y resumir documentos personales del usuario.</li>
           <li>Transcribir notas de voz con un servicio local y ejecutar la instruccion resultante.</li>
           <li>Llevar recordatorios, notas, tareas y registros de gastos e ingresos del hogar.</li>
@@ -61,8 +60,8 @@
 
         <h2 id="google">Uso de servicios de Google</h2>
         <p>
-          Alín se conecta con dos servicios de Google, siempre previa autorizacion explicita
-          del usuario mediante la pantalla de consentimiento de Google:
+          Alín se conecta con un unico servicio de Google, siempre previa autorizacion
+          explicita del usuario mediante la pantalla de consentimiento:
         </p>
         <table class="data-table">
           <thead>
@@ -78,15 +77,11 @@
               <td><code>https://www.googleapis.com/auth/calendar</code></td>
               <td>Leer los eventos del usuario para responder consultas de agenda y enviar avisos, y crear, modificar o cancelar eventos cuando el usuario lo solicita y confirma.</td>
             </tr>
-            <tr>
-              <td>Gmail</td>
-              <td><code>https://www.googleapis.com/auth/gmail.readonly</code></td>
-              <td>Buscar, leer y resumir correos, y descargar adjuntos a peticion del usuario. Alín no envia, borra, archiva ni modifica correos.</td>
-            </tr>
           </tbody>
         </table>
         <p>
-          El usuario puede revocar el acceso en cualquier momento desde
+          Alín no accede al correo del usuario ni a ningun otro servicio de Google. El usuario
+          puede revocar el acceso en cualquier momento desde
           <a href="https://myaccount.google.com/permissions" target="_blank" rel="noopener noreferrer">la pagina de permisos de su Cuenta de Google</a>.
         </p>
 

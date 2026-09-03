@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Politica de Privacidad - Alín</title>
-  <meta name="description" content="Politica de privacidad de Alín, asistente personal privado conectado a Google Calendar y Gmail." />
+  <meta name="description" content="Politica de privacidad de Alín, asistente personal privado conectado a Google Calendar." />
   <link rel="stylesheet" href="../../assets/site.css?v=20260901-alin-local" />
   <link rel="icon" type="image/jpeg" href="../../assets/branding/alin-logo.jpg?v=20260901-alin-local" />
   <link rel="apple-touch-icon" href="../../assets/branding/alin-logo.jpg?v=20260901-alin-local" />
@@ -33,9 +33,9 @@
         <h2 id="resumen">Resumen</h2>
         <p>
           Esta politica explica como <strong>Alín</strong> ("el asistente", "la app") trata los
-          datos del usuario. Alín es un asistente personal privado que se usa por Telegram,
-          se ejecuta en el servidor propio del usuario y puede conectarse a Google Calendar y
-          a Gmail cuando el usuario lo autoriza de forma expresa.
+          datos del usuario. Alín es un asistente personal privado que se usa por Telegram, se
+          ejecuta en el servidor propio del usuario y puede conectarse a Google Calendar cuando
+          el usuario lo autoriza de forma expresa.
         </p>
         <p>
           Desarrollador y contacto de privacidad: <strong>ACKA94 / Carlos Alcivar</strong>,
@@ -63,11 +63,6 @@
               <td>Google Calendar API, con autorizacion OAuth del usuario.</td>
             </tr>
             <tr>
-              <td>Datos de Gmail</td>
-              <td>Remitente, destinatario, asunto, fecha, contenido y adjuntos de los correos que el usuario consulta expresamente.</td>
-              <td>Gmail API en modo solo lectura, con autorizacion OAuth del usuario.</td>
-            </tr>
-            <tr>
               <td>Credenciales de acceso</td>
               <td>Tokens OAuth de acceso y actualizacion, correo de la cuenta autorizada e identificadores de los calendarios elegidos.</td>
               <td>Flujo de consentimiento de Google.</td>
@@ -89,13 +84,16 @@
             </tr>
           </tbody>
         </table>
+        <p>
+          Alín <strong>no</strong> accede al correo electronico del usuario ni a ningun otro
+          servicio de Google distinto de Google Calendar.
+        </p>
 
         <h2 id="uso">Como usamos los datos</h2>
         <ul>
           <li>Responder consultas de agenda: que hay hoy, manana, esta semana o en una fecha concreta.</li>
           <li>Enviar avisos anticipados de eventos, vencimientos, recordatorios y tareas pendientes.</li>
           <li>Crear, reprogramar o cancelar eventos de calendario cuando el usuario lo pide y confirma la accion.</li>
-          <li>Buscar, mostrar y resumir correos, y guardar adjuntos cuando el usuario lo solicita.</li>
           <li>Guardar, indexar, buscar y resumir los documentos que el propio usuario envia.</li>
           <li>Transcribir notas de voz para ejecutar la instruccion pedida.</li>
           <li>Mantener el contexto de la conversacion y las preferencias del usuario para dar respuestas utiles.</li>
@@ -123,10 +121,10 @@
             including the Limited Use requirements.
           </p>
         </div>
-        <p>En concreto, respecto de los datos obtenidos de Google Calendar y Gmail:</p>
+        <p>En concreto, respecto de los datos obtenidos de Google Calendar:</p>
         <ul>
           <li>Solo se usan para prestar y mejorar las funciones visibles del asistente descritas en esta politica.</li>
-          <li>No se transfieren a terceros, salvo cuando sea imprescindible para prestar la funcion pedida por el usuario, por motivos de seguridad o por obligacion legal.</li>
+          <li>No se transfieren a terceros, salvo lo estrictamente necesario para prestar la funcion pedida por el usuario, segun se detalla en la seccion "Servicios de terceros", por motivos de seguridad o por obligacion legal.</li>
           <li>No se usan para publicidad, ni para venderlos o cederlos a corredores de datos.</li>
           <li>No se permite que personas los lean, salvo con consentimiento expreso del usuario, por motivos de seguridad, para cumplir la ley, o sobre datos agregados y anonimizados usados en operaciones internas.</li>
           <li>No se usan para entrenar, ajustar ni mejorar modelos de inteligencia artificial o aprendizaje automatico generalizados.</li>
@@ -148,24 +146,30 @@
               <td>Es la interfaz de conversacion elegida por el usuario.</td>
             </tr>
             <tr>
-              <td>Google (Calendar y Gmail)</td>
+              <td>Google Calendar</td>
               <td>Las peticiones autorizadas por el usuario mediante OAuth.</td>
-              <td>Obtener y gestionar los datos que el propio usuario pide.</td>
+              <td>Obtener y gestionar los eventos que el propio usuario pide.</td>
             </tr>
             <tr>
               <td>OpenAI</td>
-              <td>Unicamente el texto que el usuario escribe o dicta al asistente, para interpretar la intencion y redactar respuestas conversacionales.</td>
-              <td>Comprension de lenguaje natural cuando el modelo local no es suficiente.</td>
+              <td>El texto que el usuario escribe o dicta al asistente y, para dar continuidad a la conversacion, fragmentos recortados de los mensajes recientes de ese mismo chat, que pueden incluir datos de eventos que el asistente ya mostro al usuario (por ejemplo el titulo o la hora de una cita).</td>
+              <td>Comprension de lenguaje natural y respuestas conversacionales cuando el modelo local no es suficiente.</td>
             </tr>
           </tbody>
         </table>
         <p>
-          <strong>Los datos obtenidos de Google no se envian a OpenAI.</strong> El contenido de
-          los correos se resume con un modelo de lenguaje local que se ejecuta en el mismo
-          servidor del usuario, y el envio de contenido de correo a proveedores en la nube esta
-          desactivado por configuracion. Los eventos de calendario se procesan y se presentan
-          con codigo local del asistente. La transcripcion de las notas de voz tambien se
-          realiza con un servicio local, sin salir del servidor.
+          Alín <strong>no envia el calendario del usuario a proveedores externos de IA</strong>:
+          los eventos se consultan y se presentan con codigo local del asistente, sin pasar por
+          un modelo. Lo unico que puede llegar a OpenAI es el contexto reciente de la propia
+          conversacion, recortado y limitado a los ultimos mensajes de ese chat, que caduca
+          automaticamente. Ese contexto se usa exclusivamente para responder al usuario: no se
+          emplea para publicidad ni para entrenar modelos. La transcripcion de las notas de voz
+          se realiza con un servicio local, sin salir del servidor.
+        </p>
+        <p>
+          El usuario que prefiera evitar por completo esa transferencia puede configurar el
+          asistente para usar unicamente el modelo de lenguaje local, o desactivar la memoria
+          de contexto conversacional.
         </p>
 
         <h2 id="seguridad">Seguridad</h2>
@@ -181,7 +185,7 @@
         <ul>
           <li>Los datos se conservan en el servidor del usuario mientras el asistente este en uso, y se eliminan cuando el usuario los borra o desinstala la app.</li>
           <li>El contexto de conversacion y otros datos temporales caducan automaticamente segun la configuracion del asistente.</li>
-          <li>El usuario puede revocar el acceso a su Cuenta de Google en cualquier momento desde <a href="https://myaccount.google.com/permissions" target="_blank" rel="noopener noreferrer">myaccount.google.com/permissions</a>. Al revocarlo, Alín deja de poder acceder a Calendar y Gmail.</li>
+          <li>El usuario puede revocar el acceso a su Cuenta de Google en cualquier momento desde <a href="https://myaccount.google.com/permissions" target="_blank" rel="noopener noreferrer">myaccount.google.com/permissions</a>. Al revocarlo, Alín deja de poder acceder a Google Calendar.</li>
           <li>Para eliminar los tokens almacenados y los datos asociados, el usuario puede borrarlos en su propia instalacion o escribir a <a href="mailto:support@ka94studio.com">support@ka94studio.com</a>.</li>
         </ul>
 
